@@ -1,0 +1,1 @@
+import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{r,c as t,o}from"./index-8Mek5LWV.js";const s={setup(){return r(),{}}};function c(n,a,f,i,p,_){return o(),t("div",null," this is life ")}const m=e(s,[["render",c]]);export{m as default};
