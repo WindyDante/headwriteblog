@@ -3,12 +3,7 @@ import Home from "@/views/Home.vue";
 </script>
 
 <template>
-  <router-view v-slot="{ Component }">
-    <transition name="fade" mode="out-in">
-      <component :is="Component" />
-      <!-- 使用 <component> 标签来动态渲染组件 -->
-    </transition>
-  </router-view>
+  <router-view> </router-view>
 </template>
 
 <style>
