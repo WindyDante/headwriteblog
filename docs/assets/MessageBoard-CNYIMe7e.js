@@ -1,1 +1,0 @@
-import{_ as e}from"./_plugin-vue_export-helper-DlAUqK2U.js";import{r,c as o,o as s}from"./index-DIxwNbod.js";const t={setup(){return r(),{}}};function a(c,n,p,_,f,d){return s(),o("div",null," messageBoard ")}const i=e(t,[["render",a]]);export{i as default};
