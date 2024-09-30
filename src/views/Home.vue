@@ -19,7 +19,7 @@ import Footer from "@/components/Footer.vue";
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.5s ease;
+  transition: opacity 0.7s ease;
 }
 .fade-enter,
 .fade-leave-to {

@@ -1,1 +1,0 @@
-import{_ as e,r,c as n,o as s}from"./index-BS1y7Oi6.js";const t={setup(){return r(),{}}};function o(c,a,i,p,_,f){return s(),n("div",null," friendLinks ")}const u=e(t,[["render",o]]);export{u as default};

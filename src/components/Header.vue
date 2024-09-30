@@ -44,26 +44,24 @@ export default {
 <style scoped>
 #header {
   width: 100%;
-  height: 50px;
   background: gray;
   transition: background 0.3s ease;
 }
 
 .title {
-  font-size: 23px;
+  font-size: 1.5rem; /* 使用相对单位 */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 10px;
-  height: 100%;
+  padding: 0 10px;
+  height: 60px; /* 提高高度以便更好显示 */
 }
 
 .titleCenter {
   display: flex;
-  width: 30%;
+  flex-grow: 1; /* 使中心部分自适应宽度 */
   align-items: center;
   justify-content: space-around;
-  height: 100%;
 }
 
 .titleCenter div {
@@ -79,5 +77,23 @@ export default {
 .titleLeft,
 .titleRight {
   color: white; /* 左右部分的文字颜色 */
+  white-space: nowrap; /* 防止换行 */
+}
+
+/* 媒体查询以增强自适应效果 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.2rem; /* 在小屏幕上减小字体 */
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    flex-direction: column; /* 在超小屏幕上纵向排列 */
+    height: auto; /* 自动高度 */
+  }
+  .titleCenter {
+    justify-content: center; /* 中心部分居中对齐 */
+  }
 }
 </style>

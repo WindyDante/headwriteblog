@@ -1,1 +1,0 @@
-import{_ as e,r as t,c as r,o as s}from"./index-BS1y7Oi6.js";const o={setup(){return t(),{}}};function c(n,a,f,i,p,_){return s(),r("div",null," this is life ")}const u=e(o,[["render",c]]);export{u as default};
