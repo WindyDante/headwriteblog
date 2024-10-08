@@ -1,20 +1,21 @@
 <template>
   <div id="header">
     <div class="title">
-      <div class="titleLeft">博客名称 and logo</div>
+      <div class="titleLeft">WinDy</div>
       <div class="titleCenter">
         <div @click="toHome">首页</div>
         <div @click="toLife">生活</div>
         <div @click="toMessageBoard">留言板</div>
         <div @click="toFriendLinks">友链</div>
       </div>
-      <div class="titleRight">其他功能or工具</div>
+      <div class="titleRight" v-if="isMobile">闲话</div>
     </div>
   </div>
 </template>
 
 <script>
 import { useRouter } from "vue-router";
+import { ref } from "vue";
 
 export default {
   setup() {
@@ -36,7 +37,12 @@ export default {
       router.push({ name: "friends" });
     };
 
-    return { toHome, toLife, toMessageBoard, toFriendLinks };
+    return {
+      toHome,
+      toLife,
+      toMessageBoard,
+      toFriendLinks,
+    };
   },
 };
 </script>
@@ -55,11 +61,13 @@ export default {
   align-items: center;
   padding: 0 10px;
   height: 60px; /* 提高高度以便更好显示 */
+  white-space: nowrap; /* 防止换行 */
+  overflow: hidden; /* 隐藏溢出的内容 */
 }
 
 .titleCenter {
   display: flex;
-  flex-grow: 1; /* 使中心部分自适应宽度 */
+  flex-grow: 2; /* 增加 flex-grow 值，使其占据更多空间 */
   align-items: center;
   justify-content: space-around;
 }
@@ -74,9 +82,13 @@ export default {
   transform: scale(1.1); /* 悬停时放大 */
 }
 
-.titleLeft,
+.titleLeft {
+  color: white; /* 左侧部分的文字颜色 */
+  white-space: nowrap; /* 防止换行 */
+}
+
 .titleRight {
-  color: white; /* 左右部分的文字颜色 */
+  color: white; /* 右侧部分的文字颜色 */
   white-space: nowrap; /* 防止换行 */
 }
 
@@ -89,11 +101,8 @@ export default {
 
 @media (max-width: 480px) {
   .title {
-    flex-direction: column; /* 在超小屏幕上纵向排列 */
-    height: auto; /* 自动高度 */
-  }
-  .titleCenter {
-    justify-content: center; /* 中心部分居中对齐 */
+    height: 60px; /* 保持固定高度以适应一行显示 */
+    flex-direction: row; /* 保持横向排列 */
   }
 }
 </style>

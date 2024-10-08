@@ -90,8 +90,8 @@ h2 {
 }
 
 .link-item {
-  flex: 1 1 calc(25% - 15px);
-  margin-bottom: 20px;
+  flex: 1 1 calc(24% - 15px); /* 每行四个 */
+  margin: 10px; /* 添加外边距，增加间隔 */
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -120,6 +120,7 @@ h2 {
   display: flex;
   align-items: center;
   width: 100%;
+  transition: all 0.3s ease; /* 添加过渡效果 */
 }
 
 .avatar {
@@ -127,6 +128,8 @@ h2 {
   height: 60px;
   border-radius: 50%;
   object-fit: cover;
+  margin-right: 15px; /* 增加头像与名称之间的距离 */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* 添加过渡效果 */
 }
 
 .avatar-placeholder {
@@ -140,17 +143,21 @@ h2 {
   border-radius: 50%;
   font-size: 1.8rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 15px; /* 增加占位符与名称之间的距离 */
+  transition: opacity 0.3s ease; /* 添加过渡效果 */
 }
 
 .link-details {
   flex: 1;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s ease; /* 添加过渡效果 */
 }
 
 .link-name {
   font-weight: bold;
   font-size: 1.3rem;
+  transition: transform 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
 }
 
 .link-desc {
@@ -158,16 +165,40 @@ h2 {
   color: #555;
 }
 
+/* 鼠标悬停效果 */
+.link-item:hover .avatar {
+  opacity: 0; /* 隐藏头像 */
+  transform: translateX(-20px); /* 头像向左移动 */
+}
+
+.link-item:hover .link-name {
+  transform: scale(1.1); /* 放大文字 */
+  color: #ff4081; /* 文字颜色变化 */
+}
+
 /* 媒体查询以增强自适应效果 */
 @media (max-width: 768px) {
   .link-item {
-    flex: 1 1 calc(50% - 15px); /* 每行两个 */
+    flex: 1 1 100%; /* 每行一个 */
   }
 }
 
 @media (max-width: 480px) {
   .link-item {
     flex: 1 1 100%; /* 每行一个 */
+  }
+
+  .avatar {
+    width: 50px; /* 调整头像大小 */
+    height: 50px;
+  }
+
+  .link-name {
+    font-size: 1.1rem; /* 调整文字大小 */
+  }
+
+  .link-desc {
+    font-size: 0.8rem; /* 调整描述文字大小 */
   }
 }
 </style>
