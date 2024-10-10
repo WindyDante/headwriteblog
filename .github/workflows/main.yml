@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # 你可以根据需要更改 Node.js 版本
+          node-version: '16'
 
       - name: Install dependencies
         run: npm install
@@ -27,5 +27,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run project
-        run: npm run dev # 或者使用其他命令来运行你的项目
+      - name: Upload production-ready files
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist-files
+          path: dist/  # 构建好的静态文件路径
