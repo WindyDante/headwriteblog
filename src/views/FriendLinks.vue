@@ -1,21 +1,30 @@
 <template>
   <div class="friend-links-container">
+    <!-- 显示好友分类名称 -->
     <h2>{{ friendData.class_name }}</h2>
+    <!-- 显示好友分类描述 -->
     <p class="description">{{ friendData.class_desc }}</p>
+    <!-- 好友链接列表 -->
     <div class="link-list">
+      <!-- 遍历好友链接列表 -->
       <div
         v-for="link in friendData.link_list"
         :key="link.name"
         class="link-item"
       >
+        <!-- 链接 -->
         <a :href="link.url" target="_blank" class="link">
           <div class="link-info">
+            <!-- 如果没有头像，则显示名字的首字母 -->
             <div v-if="!link.avatar" class="avatar-placeholder">
               {{ getInitials(link.name) }}
             </div>
+            <!-- 如果有头像，则显示头像 -->
             <img v-else :src="link.avatar" alt="" class="avatar" />
             <div class="link-details">
+              <!-- 显示名字 -->
               <span class="link-name">{{ link.name }}</span>
+              <!-- 如果有描述，则显示描述 -->
               <p class="link-desc" v-if="link.descr">{{ link.descr }}</p>
             </div>
           </div>
@@ -31,8 +40,10 @@ import yaml from "js-yaml";
 
 export default {
   setup() {
+    // 定义好友数据
     const friendData = ref({ class_name: "", class_desc: "", link_list: [] });
 
+    // 在组件挂载时，加载YAML文件
     onMounted(async () => {
       try {
         const response = await fetch("friends.yaml");
@@ -44,6 +55,7 @@ export default {
       }
     });
 
+    // 获取名字的首字母
     const getInitials = (name) => {
       return name
         .split(" ")
