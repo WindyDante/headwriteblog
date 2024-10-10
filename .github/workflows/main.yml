@@ -28,4 +28,4 @@ jobs:
         run: npm run build
 
       - name: Run project
-        run: npm run serve # 或者使用其他命令来运行你的项目
+        run: npm run dev # 或者使用其他命令来运行你的项目
