@@ -8,6 +8,13 @@
 - **内容健康**：网站内容需健康、积极，不能涉及违法、违规内容。
 - **网站活跃**：申请者的网站需保持一定的活跃度（最近三个月内有更新）。
 - **外链互换**：申请友链前，请先将我们的网站加入你的友链列表。
+下述是本人的网站,Welcome to visit my website!
+ ```yaml
+- name: EastWind
+  descr: 东风不与周郎便
+  avatar: http://qiniu.xianwu.store/Image_1727602993857.jpg
+  url: https://996.windydante.top/
+```
 
 #### 2. 申请步骤
 1. **Fork 项目**：请先 fork 本项目。
