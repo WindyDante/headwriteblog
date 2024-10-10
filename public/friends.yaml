@@ -21,5 +21,8 @@
       url: https://blog.ciraos.top
       avatar: "https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/friends/lete.avif" # 替换为真实头像链接
       descr: "这是大葱的描述"
-    
+    - name: 百度
+      url: "https://www.baidu.com"
+      descr: "百度一下，你就知道"
+      avatar: "https://tse3-mm.cn.bing.net/th/id/OIP-C.ffVjXyf76-70IQYd75H7wgAAAA?rs=1&pid=ImgDetMain"
     
