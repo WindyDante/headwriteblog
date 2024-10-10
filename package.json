@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://WindyDante.github.io/vite-project",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

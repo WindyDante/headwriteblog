@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- -->
-    this is life
+    <h1>this is my life</h1>
   </div>
 </template>
 
