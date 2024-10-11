@@ -27,8 +27,8 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Upload production-ready files
-        uses: actions/upload-artifact@v3  # 更新为 v3
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          name: dist-files
-          path: dist/  # 构建好的静态文件路径
+          branch: gh-pages  # 部署到 gh-pages 分支
+          folder: dist  # 部署 dist 文件夹
