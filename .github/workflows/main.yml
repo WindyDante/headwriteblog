@@ -1,5 +1,5 @@
 name: CI Workflow
-
+# 当推送到 master 分支或创建 pull request 到 master 分支时触发 CI  workflow
 on:
   push:
     branches:
@@ -7,22 +7,24 @@ on:
   pull_request:
     branches:
       - master
-
+# 设置权限，允许读取内容、写入页面和 ID 令牌
 permissions:
   contents: read
   pages: write
   id-token: write
-
+# 定义一个名为 build 的 job，在 ubuntu-latest 环境下运行
 jobs:
   build:
     runs-on: ubuntu-latest
-
+# 执行步骤
     steps:
+      # 检出代码
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0  # 确保拉取完整的提交历史
 
+      # 设置 Node.js 环境
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
