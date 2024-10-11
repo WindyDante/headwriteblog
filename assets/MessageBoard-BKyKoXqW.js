@@ -1,1 +1,0 @@
-import{_ as e,r,c as s,o}from"./index-Ck_dsnU_.js";const t={setup(){return r(),{}}};function a(c,n,p,_,d,f){return o(),s("div",null," messageBoard留言板 ")}const l=e(t,[["render",a]]);export{l as default};
