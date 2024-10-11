@@ -8,6 +8,11 @@ on:
     branches:
       - master
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -46,3 +51,4 @@ jobs:
           folder: docs      # 确保你要部署的文件夹
           clean: true      # 清理旧的部署文件
           token: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub Token 进行身份验证
+
