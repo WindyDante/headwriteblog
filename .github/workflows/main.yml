@@ -24,7 +24,8 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci  # 使用 ci 命令清理并安装依赖，确保是最新的
 
       - name: Build project
         run: npm run build
@@ -40,4 +41,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # 部署到 gh-pages 分支
-          folder: docs      # 确保你要部署的文件夹
+          folder: docs      # 确保你要部署的文件夹是正确的
