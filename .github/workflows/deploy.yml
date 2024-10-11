@@ -47,3 +47,8 @@ jobs:
           commit-message: 发布于：${{ steps.time.outputs.time }} # 提交信息
           # token: ${{ secrets.ACCESS_TOKEN }} # token 同仓库可以不填
           # repository-name: kongxiangyiren/kongxiangyiren.github.io # 要部署的仓库，请根据实际情况修改为用户名/仓库名，同仓库可以不填
+
+      # 显示部署成功的 GitHub Pages 地址
+      - name: Show GitHub Pages URL
+        run: |
+          echo "Deployed to https://${{ github.repository.split('/')[0] }}.github.io/${{ github.repository.split('/')[1] }}/"
