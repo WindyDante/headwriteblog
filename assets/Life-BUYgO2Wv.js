@@ -1,1 +1,0 @@
-import{_ as s,r as t,c as r,a as o,o as n}from"./index-CKJnRMH2.js";const a={setup(){return t(),{}}};function c(f,e,i,l,p,u){return n(),r("div",null,e[0]||(e[0]=[o("h1",null,"this is my life......",-1)]))}const d=s(a,[["render",c]]);export{d as default};
