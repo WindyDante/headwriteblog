@@ -51,4 +51,8 @@ jobs:
       # 显示部署成功的 GitHub Pages 地址
       - name: Show GitHub Pages URL
         run: |
-          echo "Deployed to https://${{ github.repository.split('/')[0] }}.github.io/${{ github.repository.split('/')[1] }}/"
+          REPO_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY_NAME}/"
+          echo "Deployed to $REPO_URL"
+        env:
+          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }} # 用户名
+          GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }} # 仓库名
