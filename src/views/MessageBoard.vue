@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- -->
-    messageBoard
+    messageBoard留言板
   </div>
 </template>
 
