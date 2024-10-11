@@ -17,7 +17,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
+      # 这是github官方的一个action，用于clone该仓库的源码到工作流中
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
@@ -26,12 +26,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20.17.0
-          cache: yarn
+          cache: npm
 
       - name: Install and Build
         run: |
-          yarn install
-          yarn deploy-build
+          npm install  # 使用 npm 安装依赖
+          npm run deploy-build  # 使用 npm 运行构建命令
 
       - name: 获取当前时间
         id: time
@@ -42,9 +42,8 @@ jobs:
       - name: Deploy 🚀 # 部署
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # 部署后提交到那个分支
-          folder: docs # 存放build后产物的目录
+          branch: gh-pages # 部署后提交到哪个分支
+          folder: docs # 存放 build 后产物的目录
           commit-message: 发布于：${{ steps.time.outputs.time }} # 提交信息
           # token: ${{ secrets.ACCESS_TOKEN }} # token 同仓库可以不填
-          # repository-name: kongxiangyiren/kongxiangyiren.github.io #要部署的仓库 请根据实际情况修改 为 用户名/仓库名 同仓库可以不填
-
+          # repository-name: kongxiangyiren/kongxiangyiren.github.io # 要部署的仓库，请根据实际情况修改为用户名/仓库名，同仓库可以不填
