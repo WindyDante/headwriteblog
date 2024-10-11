@@ -29,7 +29,7 @@ jobs:
           node-version: '20'  # 修改为 Node.js 20
 
       - name: Install dependencies
-        run: npm ci  # 使用 ci 命令清理并安装依赖，确保是最新的
+        run: npm i  # 使用 ci 命令清理并安装依赖，确保是最新的
 
       - name: Build project
         run: npm run build
