@@ -1,58 +1,53 @@
-name: Build and Deploy
+name: CI Workflow
+
 on:
   push:
     branches:
-      - master # 这里表示push到master分支就会触发流程,请根据实际情况修改
+      - master
   pull_request:
     branches:
       - master
 
 permissions:
-  contents: write
-
-env:
-  TZ: Asia/Shanghai
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      # 这是github官方的一个action，用于clone该仓库的源码到工作流中
-      - name: Checkout 🛎️
-        uses: actions/checkout@v4
-
-      # 安装node
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
         with:
-          node-version: 20.17.0
-          cache: npm
+          fetch-depth: 0  # 确保拉取完整的提交历史
 
-      - name: Install and Build
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # 修改为 Node.js 20
+
+      - name: Install dependencies
+        run: npm ci  # 使用 ci 命令清理并安装依赖，确保是最新的
+
+      - name: Build project
+        run: npm run build
+
+      - name: List build output
+        run: ls -R docs  # 检查 docs 目录是否存在并列出内容
+
+      - name: Verify docs directory exists
         run: |
-          npm install  # 使用 npm 安装依赖
-          npm run build  # 使用 npm 运行构建命令
+          if [ ! -d "docs" ]; then
+            echo "docs directory not found."
+            exit 1
+          fi
 
-      - name: 获取当前时间
-        id: time
-        shell: bash
-        run: echo "time=$(date +'%Y-%m-%d %H:%M:%S')" >> ${GITHUB_OUTPUT}
-
-      # 部署
-      - name: Deploy 🚀 # 部署
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages # 部署后提交到哪个分支
-          folder: docs # 存放 build 后产物的目录
-          commit-message: 发布于：${{ steps.time.outputs.time }} # 提交信息
-          # token: ${{ secrets.ACCESS_TOKEN }} # token 同仓库可以不填
-          # repository-name: kongxiangyiren/kongxiangyiren.github.io # 要部署的仓库，请根据实际情况修改为用户名/仓库名，同仓库可以不填
-
-      # 显示部署成功的 GitHub Pages 地址
-      - name: Show GitHub Pages URL
-        run: |
-          REPO_URL="https://${GITHUB_REPOSITORY_OWNER}.github.io/${GITHUB_REPOSITORY_NAME}/"
-          echo "Deployed to $REPO_URL"
-        env:
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }} # 用户名
-          GITHUB_REPOSITORY_NAME: ${{ github.event.repository.name }} # 仓库名
+          branch: gh-pages  # 部署到 gh-pages 分支
+          folder: docs      # 确保你要部署的文件夹
+          clean: true      # 清理旧的部署文件
+          token: ${{ secrets.ACCESS_TOKEN }}  # 使用 Access Token 进行身份验证
