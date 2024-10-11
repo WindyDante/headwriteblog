@@ -14,10 +14,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # 更新为 v3
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 确保拉取完整的提交历史
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3  # 更新为 v3
+        uses: actions/setup-node@v3
         with:
           node-version: '16'
 
@@ -27,8 +29,15 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Verify docs directory exists
+        run: |
+          if [ ! -d "docs" ]; then
+            echo "docs directory not found."
+            exit 1
+          fi
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # 部署到 gh-pages 分支
-          folder: docs  # 部署 dist 文件夹
+          folder: docs      # 确保你要部署的文件夹
