@@ -28,15 +28,25 @@ jobs:
         with:
           node-version: '20'  # 修改为 Node.js 20
 
-      - name: Install dependencies
-        run: npm i  # 使用 ci 命令清理并安装依赖，确保是最新的
+      # 清理旧的依赖和锁定文件
+      - name: Clean up node_modules and package-lock.json
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
 
+      # 安装依赖
+      - name: Install dependencies
+        run: npm install  # 重新安装依赖
+
+      # 构建项目
       - name: Build project
         run: npm run build
 
+      # 列出构建输出
       - name: List build output
         run: ls -R docs  # 检查 docs 目录是否存在并列出内容
 
+      # 验证 docs 目录是否存在
       - name: Verify docs directory exists
         run: |
           if [ ! -d "docs" ]; then
@@ -44,10 +54,11 @@ jobs:
             exit 1
           fi
 
+      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages  # 部署到 gh-pages 分支
           folder: docs      # 确保你要部署的文件夹
-          clean: true      # 清理旧的部署文件
+          clean: true       # 清理旧的部署文件
           token: ${{ secrets.ACCESS_TOKEN }}  # 使用 Access Token 进行身份验证
