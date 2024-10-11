@@ -1,0 +1,50 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - master # 这里表示push到master分支就会触发流程,请根据实际情况修改
+  pull_request:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 这是github官方的一个action，用于clone该仓库的源码到工作流中，
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      # 安装node
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.17.0
+          cache: yarn
+
+      - name: Install and Build
+        run: |
+          yarn install
+          yarn deploy-build
+
+      - name: 获取当前时间
+        id: time
+        shell: bash
+        run: echo "time=$(date +'%Y-%m-%d %H:%M:%S')" >> ${GITHUB_OUTPUT}
+
+      # 部署
+      - name: Deploy 🚀 # 部署
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages # 部署后提交到那个分支
+          folder: docs # 存放build后产物的目录
+          commit-message: 发布于：${{ steps.time.outputs.time }} # 提交信息
+          # token: ${{ secrets.ACCESS_TOKEN }} # token 同仓库可以不填
+          # repository-name: kongxiangyiren/kongxiangyiren.github.io #要部署的仓库 请根据实际情况修改 为 用户名/仓库名 同仓库可以不填
+
