@@ -11,7 +11,7 @@
     - name: "Redish101 Blog"
       url: "https://blog.redish101.top"
       descr: "学生 人 活的"
-      avatar: github.com/redish101.png
+      avatar: https://github.com/redish101.png
     - name: 光匿
       url: http://rayhide.fun
       descr: "道生一，一生二，二生三，三生万物"
