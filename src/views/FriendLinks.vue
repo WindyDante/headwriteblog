@@ -31,14 +31,18 @@
         </a>
       </div>
     </div>
+    <Twikoo />
   </div>
 </template>
 
 <script>
+import Twikoo from "@/components/Twikoo.vue";
+
 import { ref, onMounted } from "vue";
 import yaml from "js-yaml";
 
 export default {
+  components: { Twikoo },
   setup() {
     // 定义好友数据
     const friendData = ref({ class_name: "", class_desc: "", link_list: [] });

@@ -1,18 +1,16 @@
 <template>
   <div>
-    <!-- -->
-    留言板
+    <h2>呵呵哒留言板</h2>
+    <Twikoo />
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import Twikoo from "@/components/Twikoo.vue"; // 根据实际路径引入组件
 
 export default {
-  setup() {
-    const feature = ref();
-
-    return {};
+  components: {
+    Twikoo,
   },
 };
 </script>
