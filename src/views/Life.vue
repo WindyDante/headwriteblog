@@ -4,7 +4,9 @@
     <p>
       无论生活如何挑战我们，我们都需要勇敢面对。只有这样才能克服困难，实现自己的目标和价值。
     </p>
-    <Twikoo />
+    <div class="twikoo-container">
+      <Twikoo />
+    </div>
   </div>
 </template>
 
@@ -13,13 +15,17 @@ import { ref } from "vue";
 import Twikoo from "@/components/Twikoo.vue";
 
 export default {
+  name: "EncouragementMessage",
   components: {
     Twikoo,
   },
   setup() {
+    // 示例中没有具体使用到feature变量，如果需要可以在这里定义并返回
     const feature = ref();
 
-    return {};
+    return {
+      // 如果有需要返回的状态或者ref变量，这里添加
+    };
   },
 };
 </script>
@@ -28,10 +34,14 @@ export default {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  align-items: center; /* 水平居中 */
+  justify-content: center; /* 垂直居中 */
+  min-height: 100vh; /* 使用视口单位，使元素至少占据整个视窗高度 */
   font-family: "Courier New", monospace;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center; /* 文本居中 */
 }
 
 h1 {
@@ -41,14 +51,13 @@ h1 {
 
 p {
   font-size: 1rem;
-  text-align: center;
+  margin-bottom: 20px;
 }
 
 /* 添加媒体查询以优化移动设备展示 */
 @media (max-width: 600px) {
   .container {
-    padding: 20px;
-    height: auto; /* 移动端一般不使用 100vh，避免浏览器 UI 重叠 */
+    height: auto; /* 在移动设备上使用自动高度，以适应内容 */
   }
 
   h1 {
@@ -56,7 +65,16 @@ p {
   }
 
   p {
-    font-size: 0.875rem; /* 同样调整段落字体 */
+    font-size: 0.875rem; /* 调整段落字体大小 */
   }
+}
+
+.twikoo-container {
+  width: 100%; /* 确保 Twikoo 容器宽度与父容器一致 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 居中对齐 Twikoo 组件 */
+  justify-content: center; /* 垂直居中对齐 Twikoo 组件 */
+  margin-top: 20px; /* 添加一些顶部外边距以分隔文本和评论区 */
 }
 </style>

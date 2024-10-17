@@ -3,7 +3,7 @@
     <div class="title">
       <div class="titleLeft">WinDy</div>
       <div class="titleCenter">
-        <div @click="toHome">首页</div>
+        <div @click="toHome">文章</div>
         <div @click="toLife">生活</div>
         <div @click="toMessageBoard">留言板</div>
         <div @click="toFriendLinks">友链</div>
