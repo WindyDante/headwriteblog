@@ -119,6 +119,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 /* 背景样式 */
 body {
@@ -129,6 +130,7 @@ body {
 /* 全局容器 */
 #main {
   display: flex;
+  flex-direction: row; /* PC端默认横向布局 */
   width: 100%;
   height: 100%;
   padding: 20px;
@@ -183,7 +185,6 @@ ul {
 .markdown-content {
   font-size: 16px;
   line-height: 1.6;
-  overflow: hidden; /* 去除滚动条 */
 }
 
 /* 限制图片大小 */
@@ -195,42 +196,38 @@ ul {
 
 /* PC 端适配 */
 @media (min-width: 768px) {
-  #main {
-    flex-direction: row;
-  }
-
   .file-list-container {
-    width: 30%;
+    width: 30%; /* 文件列表宽度 */
   }
 
   .content-container {
-    width: 70%;
+    width: 70%; /* 内容区宽度 */
   }
 }
 
 /* 移动端适配 */
 @media (max-width: 767px) {
   #main {
-    flex-direction: column;
+    flex-direction: column; /* 移动端使用纵向布局 */
     padding: 10px;
   }
 
   .file-list-container {
-    width: 100%;
+    width: 100%; /* 文件列表宽度 */
     margin-bottom: 20px;
   }
 
   .content-container {
-    width: 100%;
+    width: 100%; /* 内容区宽度 */
     padding: 15px;
   }
 
   .file-item {
-    font-size: 18px;
+    font-size: 18px; /* 增大文件项字体 */
   }
 
   .markdown-content {
-    font-size: 14px;
+    font-size: 14px; /* 减小Markdown内容字体 */
   }
 }
 </style>
