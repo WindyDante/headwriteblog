@@ -1,5 +1,5 @@
 name: CI Workflow
-# 当推送到 master 分支或创建 pull request 到 master 分支时触发 CI  workflow
+# 当推送到 master 分支或创建 pull request 到 master 分支时触发 CI workflow
 on:
   push:
     branches:
@@ -38,7 +38,9 @@ jobs:
 
       # 安装依赖
       - name: Install dependencies
-        run: npm install  # 重新安装依赖
+        run: |
+          npm install  # 重新安装依赖
+          npm install vite-plugin-md --save-dev --legacy-peer-deps  # 强制安装 vite-plugin-md
 
       # 构建项目
       - name: Build project
@@ -63,4 +65,4 @@ jobs:
           branch: gh-pages  # 部署到 gh-pages 分支
           folder: docs      # 确保你要部署的文件夹
           clean: true       # 清理旧的部署文件
-          token: ${{ secrets.ACCESS_TOKEN  }}  # 使用 Access Token 进行身份验证
+          token: ${{ secrets.ACCESS_TOKEN }}  # 使用 Access Token 进行身份验证
