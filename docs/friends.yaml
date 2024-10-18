@@ -1,25 +1,26 @@
 - class_name: 友情链接
   class_desc: 不要小瞧我们啊，这就是友情的力量！
   link_list:
-    - name: 大葱机器人1号
+    - name: 葱苓sama
       url: https://blog.ciraos.top
-      avatar: "https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/friends/lete.avif" # 替换为真实头像链接
-      descr: "这是大葱的描述111111111111111111111"
-    - name:  大葱机器人2号
-      url: https://blog.ciraos.top
-      avatar: "https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/friends/lete.avif" # 替换为真实头像链接
-      descr: "这是大葱的描述"
-    - name:  大葱机器人3号
-      url: https://blog.ciraos.top
-      avatar: "https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/friends/lete.avif" # 替换为真实头像链接
-      descr: "这是大葱的描述"
-    - name:  大葱机器人3号
-      url: https://blog.ciraos.top
-      avatar: "https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/friends/lete.avif" # 替换为真实头像链接
-      descr: "这是大葱的描述"
-    - name:  大葱机器人3号
-      url: https://blog.ciraos.top
-      avatar: "https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/friends/lete.avif" # 替换为真实头像链接
-      descr: "这是大葱的描述"
-    
-    
+      avatar: https://blog.ciraos.top/custom/avatar1.avif 
+      # https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/avatar1.avif
+      descr: "Don't worry, Be happy."  
+      # sitehot: https://blog.ciraos.top/custom/siteshot.avif 
+      # https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/site-shot.avif
+    - name: "Redish101 Blog"
+      url: "https://blog.redish101.top"
+      descr: "学生 人 活的"
+      avatar: https://github.com/redish101.png
+    - name: 光匿
+      url: http://rayhide.fun
+      descr: "道生一，一生二，二生三，三生万物"
+      avatar: "https://s21.ax1x.com/2024/10/11/pAYnVbR.jpg"
+    - name: 煮雪话河山
+      url: https://blog.cent1pedee.top/
+      avatar: https://img.cent1pedee.top/img/wechat.jpg
+      descr: 如月之恒，如日之升。
+    - name: 清羽飞扬
+      url: https://blog.liushen.fun/
+      avatar: https://blog.liushen.fun/info/avatar.ico
+      descr: "柳影曳曳，清酒孤灯，扬笔撒墨，心境如霜"

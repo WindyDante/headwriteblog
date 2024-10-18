@@ -5,7 +5,8 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:"/headwriteblog/",
+  base: "/headwriteblog/",
+  assetsInclude: ['**/*.md'],
   plugins: [
     vue(),
   ],
