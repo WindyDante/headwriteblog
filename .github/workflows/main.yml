@@ -39,7 +39,7 @@ jobs:
       # 安装依赖
       - name: Install dependencies
         run: |
-          npm install  # 重新安装依赖
+          npm install --legacy-peer-deps  # 重新安装依赖并跳过 vite-plugin-md 的安装
           npm install vite-plugin-md --save-dev --legacy-peer-deps  # 强制安装 vite-plugin-md
 
       # 构建项目
