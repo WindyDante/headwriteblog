@@ -6,6 +6,7 @@ categories:
   - 前端
 description: Vue2
 abbrlink: 4d45ebbb
+date: 2023-09-19
 ---
 # Vue核心
 

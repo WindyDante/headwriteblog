@@ -7,6 +7,7 @@ categories:
   - Redis
 description: Redis的快速入门教程
 abbrlink: 6a343b7f
+date: 2023-8-13
 ---
 
 # Redis入门
