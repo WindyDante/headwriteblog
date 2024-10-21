@@ -6,6 +6,7 @@ categories:
   - Redis
 description: Redis基础篇
 abbrlink: 4604f75b
+date: 2023-8-27
 ---
 # 初识Redis
 
