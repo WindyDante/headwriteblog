@@ -1,0 +1,1 @@
+import{T as s}from"./Twikoo-cDofukCs.js";import{_ as t,c as a,a as n,g as r,e as c,h as d}from"./index-BDEr9yp-.js";const p={components:{Twikoo:s}};function _(i,o,m,l,f,k){const e=d("Twikoo");return c(),a("div",null,[o[0]||(o[0]=n("div",{class:"boardFont"}," 亲爱的小伙伴们可以在这里为我留下你想对我说的话哦！ ",-1)),r(e)])}const B=t(p,[["render",_],["__scopeId","data-v-3b25de7e"]]);export{B as default};
