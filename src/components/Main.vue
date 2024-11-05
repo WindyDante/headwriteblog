@@ -16,7 +16,7 @@
     </ul>
     <div v-if="showOverlay" class="overlay" @click="closeOverlay">
       <div class="overlay-content" @click.stop>
-        <div v-html="markdownContent"></div>
+        <div class="markdownContent" v-html="markdownContent"></div>
       </div>
     </div>
   </div>
@@ -131,7 +131,6 @@ export default {
     fixed;
   background-size: cover;
   color: #333;
-  font-family: "KaiTi", serif;
   padding: 20px;
 }
 
@@ -281,5 +280,9 @@ export default {
   .blog-list p {
     font-size: 0.7em;
   }
+}
+
+:deep(.markdownContent p) {
+  font-size: 18px;
 }
 </style>

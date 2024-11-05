@@ -21,8 +21,9 @@ export default {
       script.onload = () => {
         // 在加载完成后初始化 Twikoo
         twikoo.init({
-          envId: "https://twikoocomment-henna.vercel.app", // 替换为你的环境 ID 或 Vercel 地址
+          envId: "https://twikoo.windydante.top/", // 替换为你的环境 ID 或 Vercel 地址
           el: "#tcomment",
+          lang: "zh-CN",
         });
       };
     });
