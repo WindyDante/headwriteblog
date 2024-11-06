@@ -978,7 +978,7 @@ userservice:
 
 此时依然有效，但访问的是SH的集群，且服务消费者的控制台会输出跨集群访问的地址信息
 
-```
+```shell
 A cross-cluster call occurs，name = userservice, clusterName = HZ, instance = [Instance{instanceId='192.168.200.1#8082#SH#DEFAULT_GROUP@@userservice', ip='192.168.200.1', port=8082, weight=1.0, healthy=true, enabled=true, ephemeral=true, clusterName='SH', serviceName='DEFAULT_GROUP@@userservice', metadata={preserved.register.source=SPRING_CLOUD}}]
 ```
 

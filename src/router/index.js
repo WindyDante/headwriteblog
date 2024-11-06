@@ -28,7 +28,13 @@ const router = createRouter({
           path:"/friends",
           name:"friends",
           component:()=>import("@/views/FriendLinks.vue")
-     } 
+        },
+        {
+          path: "/content/:fileName",
+          name: "Content",
+          component: () => import("@/components/Content.vue"),
+          props:true
+     }
       ]
     }
    

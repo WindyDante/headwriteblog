@@ -7,6 +7,9 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   base: "/headwriteblog/",
   assetsInclude: ['**/*.md'],
+  optimizeDeps: {
+    include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
+  },
   plugins: [
     vue(),
   ],

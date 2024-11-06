@@ -4,9 +4,9 @@
     <p>
       无论生活如何挑战我们，我们都需要勇敢面对。只有这样才能克服困难，实现自己的目标和价值。
     </p>
-    <div class="twikoo-container">
-      <Twikoo />
-    </div>
+  </div>
+  <div class="twikoo-container">
+    <Twikoo />
   </div>
 </template>
 
@@ -36,8 +36,6 @@ export default {
   flex-direction: column;
   align-items: center; /* 水平居中 */
   justify-content: center; /* 垂直居中 */
-  min-height: 100vh; /* 使用视口单位，使元素至少占据整个视窗高度 */
-  font-family: "Courier New", monospace;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
@@ -75,6 +73,5 @@ p {
   flex-direction: column;
   align-items: center; /* 居中对齐 Twikoo 组件 */
   justify-content: center; /* 垂直居中对齐 Twikoo 组件 */
-  margin-top: 20px; /* 添加一些顶部外边距以分隔文本和评论区 */
 }
 </style>

@@ -50,11 +50,12 @@ export default {
 <style scoped>
 #header {
   width: 100%;
-  background: gray;
+  background: #9309e4;
   transition: background 0.3s ease;
 }
 
 .title {
+  color: #e9f1f6;
   font-size: 1.5rem; /* 使用相对单位 */
   display: flex;
   justify-content: space-between;
@@ -78,17 +79,15 @@ export default {
 }
 
 .titleCenter div:hover {
-  color: #007bff; /* 悬停时改变颜色 */
+  color: #b0a4e3; /* 悬停时改变颜色 */
   transform: scale(1.1); /* 悬停时放大 */
 }
 
 .titleLeft {
-  color: white; /* 左侧部分的文字颜色 */
   white-space: nowrap; /* 防止换行 */
 }
 
 .titleRight {
-  color: white; /* 右侧部分的文字颜色 */
   white-space: nowrap; /* 防止换行 */
 }
 
