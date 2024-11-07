@@ -5,11 +5,7 @@
       <p class="article-date">发布日期：{{ article.date }}</p>
     </header>
     <!-- 使用 markdown 编辑器，切换为预览模式 -->
-    <v-md-editor
-      class="markdown-content"
-      mode="preview"
-      v-model="article.content"
-    ></v-md-editor>
+    <v-md-preview :text="article.content"></v-md-preview>
   </div>
 </template>
 
@@ -43,7 +39,6 @@ export default {
           .replace(/---[\s\S]*?---/, "")
           .trim();
         const contentHtml = renderMarkdown(contentWithoutMetadata);
-
         article.value = {
           title: titleMatch ? titleMatch[1].trim() : fileName,
           date: dateMatch ? dateMatch[1].trim() : "未知",

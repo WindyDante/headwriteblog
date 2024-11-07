@@ -547,4 +547,98 @@ f(x0) = 左极限 = 右极限 = 连续
 
 ![image-20241015220141627](https://s2.loli.net/2024/10/15/CrZmoN9XJknxwsV.png)
 
-![image-20241015220458387](https://s2.loli.net/2024/10/15/PN16ITSQftHXkus.png)
+<img src="https://s2.loli.net/2024/10/15/PN16ITSQftHXkus.png" alt="image-20241015220458387" style="zoom:50%;" />
+
+## 莱布尼兹公式求高阶导数
+
+求导公式
+
+<img src="https://s2.loli.net/2024/10/28/nCG3lZLa2zm7Nv4.png" alt="image-20241028213224948" style="zoom:50%;" />
+
+Cxx的求解方式
+
+<img src="https://s2.loli.net/2024/10/28/GzjDEWtugq9rNkf.png" alt="image-20241028213322115" style="zoom:50%;" />
+
+## 微分计算
+
+![image-20241028215055400](https://s2.loli.net/2024/10/28/mZsqjYRKFE3xudH.png)
+
+![image-20241028215221699](https://s2.loli.net/2024/10/28/YgEIyqJT9RaWf75.png)
+
+![image-20241028215840372](https://s2.loli.net/2024/10/28/GjqOnwXyDSIp7br.png)
+
+## 洛必达
+
+<img src="https://s2.loli.net/2024/11/03/65bqXNjdxMPp8ic.png" alt="image-20241030220422671" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/03/JYOcLvh83bjys4a.png" alt="image-20241030220736580" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/03/MU7w5Ff9pjK6BWC.png" alt="image-20241030220949007" style="zoom:50%;" />
+
+## 在某一点处的可导性
+
+在某一点可导一定连续，连续不一定可导
+
+![image-20241103215441839](https://s2.loli.net/2024/11/03/aocUNOzxt1CWPSm.png)
+
+例题
+
+![image-20241103215651985](https://s2.loli.net/2024/11/03/lLE6V5UjgJMectP.png)
+
+![image-20241103224053343](https://s2.loli.net/2024/11/03/h5BKRfNrco17Dy2.png)
+
+## 利用导数求关于f的极限
+
+导数第一定义式，用于求导数在某点上的极限值
+
+![image-20241104223245281](https://s2.loli.net/2024/11/07/X8TU5joLfBixqSu.png)
+
+导数第二定义式，计算关于f的极限题
+
+这里的五角星 =  x - x0，因为x趋向于x0，所以五角星趋向于0
+
+![image-20241104223426721](https://s2.loli.net/2024/11/07/71X3TwkYU6lpa85.png)
+
+例题
+
+![image-20241104223930810](https://s2.loli.net/2024/11/07/jr9RwdLqUmfzDZN.png)
+
+## 切线与法线方程
+
+![image-20241105223258244](https://s2.loli.net/2024/11/07/4YnLSMc1hzrZywb.png)
+
+![image-20241105223443619](https://s2.loli.net/2024/11/07/VlKoa6GPwZn9TbD.png)
+
+另一种题型，给出x求y
+
+![image-20241105223826850](https://s2.loli.net/2024/11/07/Ol92R6TpMNyQV8Y.png)
+
+根据切线方程及基本条件求切点坐标
+
+![image-20241105224355123](https://s2.loli.net/2024/11/07/NTvpMUcADRuHi6V.png)
+
+确定切点，由方程确定的导数，求导求方程
+
+隐函数是两边求导，求出y导的结果
+
+在某一点处是直接计算切点和k(斜率)得出公式
+
+过某一点处是另一种情况，解法如下
+
+<img src="https://s2.loli.net/2024/11/07/fIiJTqHSDxF3KVG.png" alt="image-20241105225655296" style="zoom:50%;" />
+
+法线方程
+
+![image-20241105230719793](https://s2.loli.net/2024/11/07/4lYFGvkyoZz6xP9.png)
+
+
+
+
+
+
+
+# 裂项
+
+<img src="https://s2.loli.net/2024/10/28/9CGPwMJTURZke15.png" alt="image-20241021222941689" style="zoom:50%;" />
+
+## 

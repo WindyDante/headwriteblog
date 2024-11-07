@@ -2,26 +2,23 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 
-// 导入 v-md-editor 及其样式
-import VMdEditor from '@kangc/v-md-editor';
-import '@kangc/v-md-editor/lib/style/base-editor.css';
-
-// 导入 GitHub 主题
-import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
+// main.js
+import VMdPreview from '@kangc/v-md-editor/lib/preview';
+import '@kangc/v-md-editor/lib/style/preview.css';
+// 引入你所使用的主题 此处以 github 主题为例
+import githubTheme from '@kangc/v-md-editor/lib/theme/github';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 
-// 导入 highlight.js
+// highlightjs
 import hljs from 'highlight.js';
 
-// 使用 GitHub 主题和 highlight.js
-VMdEditor.use(githubTheme, {
-  Hljs: hljs, // 配置语法高亮插件
+VMdPreview.use(githubTheme, {
+  Hljs: hljs,
 });
 
 const app = createApp(App);
 
 // 注册路由和 VMdEditor
 app.use(router);
-app.use(VMdEditor);
-
+app.use(VMdPreview)
 app.mount('#app');
