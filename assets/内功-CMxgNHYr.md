@@ -1906,3 +1906,17 @@ V模型：基于架构的开发方法
 
 # 数据库设计
 
+## 数据库设计过程
+
+<img src="https://s2.loli.net/2024/10/18/hqjg2Ta4okJEwly.png" alt="image-20241018160137291" style="zoom:50%;" />
+
+## ER模型
+
+<img src="https://s2.loli.net/2024/10/18/Xh6esVgSpoJb1WC.png" alt="image-20241018160442657" style="zoom:50%;" />
+
+转换的基本原则是：实体和联系分别转换成关系，属性则转换成相应关系的属性。
+
+- 一对一联系
+- 一对多联系
+- 多对多联系
+- 多元联系

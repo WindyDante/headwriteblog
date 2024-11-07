@@ -1270,7 +1270,6 @@ public class CircleSingleLinkedListDemo {
         circleSingleLinkedList.countBoy(1,2,5);
     }
 }
-
 // 创建环形单向链表
 class CircleSingleLinkedList{
     // 创建first节点,没有编号;
