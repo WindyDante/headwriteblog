@@ -5,90 +5,66 @@
       <p class="article-date">发布日期：{{ article.date }}</p>
     </header>
     <!-- 使用 markdown 编辑器，切换为预览模式 -->
-    <v-md-preview :text="article.content"></v-md-preview>
+    <v-md-preview
+      v-if="article.content"
+      :text="article.content"
+      :key="article.title"
+    ></v-md-preview>
+    <p v-else>加载中...</p>
   </div>
 </template>
 
 <script>
-import { ref, onMounted, nextTick } from "vue";
-import markdownIt from "markdown-it";
+import { ref, onMounted } from "vue";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
 
 export default {
-  props: ["fileName"],
-  setup(props) {
+  setup() {
+    const route = useRoute();
+    const store = useStore();
     const article = ref({
-      title: "",
-      date: "",
+      title: route.params.title || "无标题",
+      date: route.params.date || "未知日期",
       content: "",
     });
 
-    // 加载文章内容
-    const loadArticle = async (fileName) => {
-      try {
-        const response = await fetch(
-          `${import.meta.env.BASE_URL}markdowns/${encodeURIComponent(fileName)}`
+    const loadFromCache = (title) => {
+      const cachedArticle = sessionStorage.getItem(`article-${title}`);
+      return cachedArticle ? JSON.parse(cachedArticle) : null;
+    };
+
+    const loadArticleContent = async (title) => {
+      const cachedArticle = loadFromCache(title);
+
+      if (cachedArticle) {
+        article.value = cachedArticle;
+      } else {
+        // 从 Vuex 获取文章内容
+        const matchingArticle = store.state.markdownFiles.find(
+          (file) => file.title === title
         );
-        const data = await response.text();
-
-        // 提取标题和日期
-        const titleMatch = data.match(/title:\s*(.*)/);
-        const dateMatch = data.match(/date:\s*(.*)/);
-
-        // 去除 metadata 部分，渲染 markdown
-        const contentWithoutMetadata = data
-          .replace(/---[\s\S]*?---/, "")
-          .trim();
-        const contentHtml = renderMarkdown(contentWithoutMetadata);
-        article.value = {
-          title: titleMatch ? titleMatch[1].trim() : fileName,
-          date: dateMatch ? dateMatch[1].trim() : "未知",
-          content: contentHtml,
-        };
-
-        await nextTick(() => {
-          applyImageResizing(); // 等待渲染完成后处理图片大小
-        });
-      } catch (error) {
-        console.error("Error loading article:", error);
+        if (matchingArticle) {
+          article.value = {
+            title: matchingArticle.title,
+            date: article.value.date,
+            content: matchingArticle.content,
+          };
+          // 将文章内容存入缓存
+          sessionStorage.setItem(
+            `article-${title}`,
+            JSON.stringify(article.value)
+          );
+        } else {
+          article.value.content = "文章未找到";
+        }
       }
     };
 
-    // 渲染 markdown
-    const renderMarkdown = (markdownText) => {
-      const markdownItInstance = markdownIt({
-        html: true, // 允许渲染 HTML 标签
-      });
-
-      return markdownItInstance.render(markdownText);
-    };
-
-    // 图片加载时处理宽度调整
-    const applyImageResizing = () => {
-      const images = document.querySelectorAll(".v-md-editor img");
-      images.forEach((img) => {
-        img.classList.add("loading"); // 显示 loading 动画
-        img.addEventListener("load", () => {
-          img.classList.remove("loading"); // 图片加载完成后移除 loading 动画
-
-          const containerWidth = img.parentElement.offsetWidth; // 容器宽度
-          const imgWidth = img.naturalWidth; // 图片的原始宽度
-
-          // 如果图片宽度大于容器，则设置为 100%
-          if (imgWidth > containerWidth) {
-            img.style.width = "100%";
-          }
-        });
-
-        img.addEventListener("error", () => {
-          img.classList.remove("loading"); // 图片加载失败移除 loading 动画
-          img.classList.add("error"); // 加入错误的样式类
-          img.alt = "图片加载失败"; // 显示错误信息
-        });
-      });
-    };
-
     onMounted(() => {
-      loadArticle(props.fileName); // 加载文章
+      if (route.params.title) {
+        loadArticleContent(route.params.title);
+      }
     });
 
     return {

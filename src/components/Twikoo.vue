@@ -21,7 +21,7 @@ export default {
       script.onload = () => {
         // 在加载完成后初始化 Twikoo
         twikoo.init({
-          envId: "http://124.223.88.171:8080/", // 替换为你的环境 ID 或 Vercel 地址
+          envId: "http://124.223.88.171:7070/", // 替换为你的环境 ID 或 Vercel 地址
           el: "#tcomment",
           lang: "zh-CN",
         });

@@ -1,3 +1,56 @@
+<script setup>
+import { useStore } from "vuex"; // 引入 Vuex store
+import { useRouter } from "vue-router"; // 引入 Vue Router
+import { ref, onMounted } from "vue";
+
+const store = useStore();
+const router = useRouter();
+
+// 用于存储文章数据
+const markdownFiles = ref([]);
+
+// 从缓存中获取数据
+const loadFromCache = () => {
+  const cachedData = sessionStorage.getItem("markdownFiles");
+  return cachedData ? JSON.parse(cachedData) : null;
+};
+
+// 加载数据到缓存
+const loadMarkdownFiles = () => {
+  const cachedData = loadFromCache();
+  if (cachedData) {
+    markdownFiles.value = cachedData; // 使用缓存数据
+  } else {
+    markdownFiles.value = store.state.markdownFiles.map((file) => ({
+      name: file.name,
+      date: file.created,
+      title: file.title,
+      daysAgo: file.daysAgo,
+    }));
+    sessionStorage.setItem(
+      "markdownFiles",
+      JSON.stringify(markdownFiles.value)
+    ); // 存入缓存
+  }
+};
+
+// 跳转到文章页面
+const goToArticle = (file) => {
+  router.push({
+    name: "Content",
+    params: {
+      title: file.title, // 传递标题
+      date: file.date, // 传递日期
+    },
+  });
+};
+
+// 初始化加载
+onMounted(() => {
+  loadMarkdownFiles();
+});
+</script>
+
 <template>
   <div class="blog-container">
     <header class="blog-header">
@@ -8,7 +61,7 @@
       <li
         v-for="file in markdownFiles"
         :key="file.name"
-        @click="goToArticle(file.name)"
+        @click="goToArticle(file)"
       >
         <h2>{{ file.title }}</h2>
         <p>{{ file.daysAgo }} 天前</p>
@@ -16,61 +69,6 @@
     </ul>
   </div>
 </template>
-
-<script>
-import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router"; // 导入 useRouter
-
-export default {
-  setup() {
-    const markdownFiles = ref([]);
-    const router = useRouter(); // 初始化 Vue Router
-
-    const loadMarkdownFiles = async () => {
-      const files = import.meta.glob("/public/markdowns/*.md");
-      const fileList = Object.keys(files).map(async (filePath) => {
-        const fileName = filePath.replace("/public/markdowns/", "");
-        const response = await fetch(
-          `${import.meta.env.BASE_URL}markdowns/${encodeURIComponent(fileName)}`
-        );
-        const data = await response.text();
-        const titleMatch = data.match(/title:\s*(.*)/);
-        const dateMatch = data.match(/date:\s*(.*)/);
-
-        return {
-          name: fileName,
-          title: titleMatch ? titleMatch[1].trim() : fileName,
-          created: dateMatch ? dateMatch[1].trim() : null,
-          daysAgo: dateMatch ? calculateDaysAgo(dateMatch[1].trim()) : null,
-        };
-      });
-
-      markdownFiles.value = await Promise.all(fileList);
-    };
-
-    const goToArticle = (fileName) => {
-      router.push({ name: "Content", params: { fileName } }); // 跳转到 Content 页面
-    };
-
-    const calculateDaysAgo = (dateString) => {
-      const createdDate = new Date(dateString);
-      const now = new Date();
-      const timeDiff = now - createdDate;
-      const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-      return daysDiff;
-    };
-
-    onMounted(() => {
-      loadMarkdownFiles();
-    });
-
-    return {
-      markdownFiles,
-      goToArticle,
-    };
-  },
-};
-</script>
 
 <style scoped>
 .blog-container {
@@ -152,4 +150,3 @@ export default {
   }
 }
 </style>
-

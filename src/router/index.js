@@ -2,6 +2,7 @@ import { createRouter,createWebHashHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
 
 const router = createRouter({
+  mode:"hash",
   history: createWebHashHistory(),
   routes: [
     {
@@ -12,7 +13,7 @@ const router = createRouter({
         {
           path:'/',
           name:'main',
-          component:()=>import("@/components/Main.vue")
+          component: () => import("@/components/Main.vue")
         },
          {
           path:'/life',
@@ -30,11 +31,10 @@ const router = createRouter({
           component:()=>import("@/views/FriendLinks.vue")
         },
         {
-          path: "/content/:fileName",
+          path: "/content/:title/:date",
           name: "Content",
-          component: () => import("@/components/Content.vue"),
-          props:true
-     }
+          component: () => import("@/components/Content.vue")
+        }
       ]
     }
    

@@ -3,7 +3,7 @@
   link_list:
     - name: 葱苓sama
       url: https://blog.ciraos.top
-      avatar: https://blog.ciraos.top/ciraos.webp
+      avatar: https://blog.ciraos.top/avatar1.avif
       # https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/avatar1.avif
       descr: "Don't worry, Be happy."
       # sitehot: https://blog.ciraos.top/custom/siteshot.avif
@@ -28,3 +28,7 @@
       url: https://blog.quenan.love/
       avatar: https://i.p-i.vip/43/20240913-66e403f2331ec.webp
       descr: 世界那么大，我想去看看
+    - name: 梦溯·镜影
+      url: https://yumetsuki.moe/
+      avatar: https://img-r2.yumetsuki.moe/q78kg/avatar.webp
+      descr: sleeeeep

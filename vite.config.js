@@ -7,15 +7,20 @@ import prismjs from 'vite-plugin-prismjs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/headwriteblog/",
+  base: "./",
   assetsInclude: ['**/*.md'],
   optimizeDeps: {
     include: ['@kangc/v-md-editor/lib/theme/vuepress.js'],
   },
+  publicPath: process.env.NODE_ENV === 'production' ? './' : './',
   plugins: [
     vue(),
-    
   ],
+  server: {
+    
+    port: 80,
+    open: true
+  },
   build:{
     outDir:"docs"
   },

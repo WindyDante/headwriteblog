@@ -20,6 +20,5 @@ export default {
 #footer {
   width: 100%;
   height: 100px;
-  background: red;
 }
 </style>
