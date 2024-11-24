@@ -36,6 +36,7 @@ watch(
 
 // 页面加载时的首次加载处理
 onMounted(async () => {
+  console.log("app组件加载中准备...");
   loadingState.show("正在加载页面...");
   try {
     await ensureDataLoaded(); // 确保数据加载完成
