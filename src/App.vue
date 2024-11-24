@@ -39,6 +39,7 @@ onMounted(async () => {
   loadingState.show("正在加载页面...");
   try {
     await ensureDataLoaded(); // 确保数据加载完成
+    console.log("app组件完成");
   } finally {
     loadingState.hide();
     isContentLoaded.value = true; // 标记加载完成

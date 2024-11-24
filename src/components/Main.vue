@@ -48,6 +48,7 @@ const goToArticle = (file) => {
 // 初始化加载
 onMounted(() => {
   loadMarkdownFiles();
+  console.log("main组件完成");
 });
 </script>
 

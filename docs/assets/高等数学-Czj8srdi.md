@@ -228,6 +228,9 @@ arcsin、arccos、arctan与sin、cos、tan相同
 
 ![image-20240808220243479](https://s2.loli.net/2024/08/08/rJP7t6zhXYWNVpf.png)
 
+- 偶函数的偶次方是偶函数
+- 奇函数的偶次方是偶函数
+
 # 反函数的解法
 
 <img src="https://s2.loli.net/2024/08/08/sEc4hTL3AzZSCWl.png" alt="image-20240808221209768" style="zoom:50%;" />
@@ -699,9 +702,9 @@ Cxx的求解方式
 
 ## 凑微分
 
-![image-20241118210124981](https://s2.loli.net/2024/11/18/GpkT3ArbclR2w94.png)
+<img src="https://s2.loli.net/2024/11/18/GpkT3ArbclR2w94.png" alt="image-20241118210124981" style="zoom:50%;" />
 
-![image-20241118210518176](https://s2.loli.net/2024/11/18/udtF9i6jfHlMIgV.png)
+<img src="https://s2.loli.net/2024/11/18/udtF9i6jfHlMIgV.png" alt="image-20241118210518176" style="zoom:50%;" />
 
 ### 补充公式
 
@@ -812,4 +815,24 @@ Cxx的求解方式
 <img src="https://s2.loli.net/2024/11/22/vlhRx9rjKefWX8A.png" alt="image-20241122204224946" style="zoom:50%;" />
 
 ## 一个常用公式
+
+技巧1
+
+这里所使用的都是双阶乘，如果只是普通阶乘的话，例如`5! = 5*4*3*2*1`
+
+而双阶乘就是，`5!! = 5*3*1`
+
+![image-20241124164229632](https://s2.loli.net/2024/11/24/Qm3COXdGS5jBnRz.png)
+
+若没有则可以看n为0
+
+![image-20241124164826460](https://s2.loli.net/2024/11/24/DgvPaKts3cXubnV.png)
+
+## 奇偶性求定积分
+
+对称区间下，偶倍奇0
+
+<img src="https://s2.loli.net/2024/11/24/LFXpyCfaW2h1NIM.png" alt="image-20241124170001883" style="zoom:50%;" />
+
+如果是非奇非偶的，可以拆成两项观察对称性
 
