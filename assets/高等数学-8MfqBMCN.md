@@ -228,7 +228,7 @@ arcsin、arccos、arctan与sin、cos、tan相同
 
 ![image-20240808220243479](https://s2.loli.net/2024/08/08/rJP7t6zhXYWNVpf.png)
 
-- 偶函数的偶次方是偶函数
+- 偶函数的偶次方是偶函数	
 - 奇函数的偶次方是偶函数
 
 # 反函数的解法
@@ -740,7 +740,7 @@ Cxx的求解方式
 
 ### 整体换元
 
-遇到的情况
+遇到的情况	
 
 ![image-20241121183204236](https://s2.loli.net/2024/11/21/odJikHLQphlXyRv.png)
 
