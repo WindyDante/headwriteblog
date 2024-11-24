@@ -9,20 +9,27 @@ const router = useRouter();
 const store = useStore(); // 使用 Vuex store
 const isContentLoaded = ref(false); // 标志内容是否加载完成
 
+// 确保数据加载完成并更新视图
+const ensureDataLoaded = async () => {
+  if (store.state.markdownFiles.length === 0) {
+    // 仅在数据未加载时调用加载函数
+    await store.dispatch("loadMarkdownFiles");
+  }
+};
+
 // 监听路由变化
 watch(
   () => router.currentRoute.value,
   async () => {
     loadingState.show("正在加载页面...");
-    isContentLoaded.value = false; // 切换路由时，重置加载状态
+    isContentLoaded.value = false; // 重置加载状态
     try {
-      // 加载 Main 组件的 Markdown 文件
       if (router.currentRoute.value.name === "Main") {
-        await loadMarkdownFiles(); // 加载 Markdown 文件
+        await ensureDataLoaded(); // 确保数据加载完成
       }
     } finally {
       loadingState.hide();
-      isContentLoaded.value = true; // 加载完成
+      isContentLoaded.value = true; // 标记加载完成
     }
   }
 );
@@ -31,24 +38,20 @@ watch(
 onMounted(async () => {
   loadingState.show("正在加载页面...");
   try {
-    await loadMarkdownFiles(); // 初次加载时加载 Markdown 文件
+    await ensureDataLoaded(); // 确保数据加载完成
   } finally {
     loadingState.hide();
-    isContentLoaded.value = true; // 加载完成
+    isContentLoaded.value = true; // 标记加载完成
   }
 });
-
-// 加载 Markdown 文件的函数
-const loadMarkdownFiles = async () => {
-  await store.dispatch("loadMarkdownFiles"); // 通过 Vuex 动作加载文件
-};
 </script>
+
 
 <template>
   <GlobalLoading />
   <div v-if="isContentLoaded">
-    <!-- 传递 markdownFiles 到 Main 组件 -->
-    <router-view :markdownFiles="store.state.markdownFiles" />
+    <!-- 不再传递 markdownFiles -->
+    <router-view />
   </div>
 </template>
 

@@ -762,3 +762,54 @@ Cxx的求解方式
 例题
 
 <img src="https://s2.loli.net/2024/11/21/QKnGcE4uCgSI3UH.png" alt="image-20241121200606912" style="zoom:50%;" />
+
+## 积分求导
+
+公式
+
+![image-20241122152318934](https://s2.loli.net/2024/11/22/MeTCf9vnYH3Ku71.png)
+
+例题
+
+![image-20241122153050814](https://s2.loli.net/2024/11/22/LyRbjPSMmd5Zuwp.png)
+
+<img src="https://s2.loli.net/2024/11/22/sHSUwJT35DGR7MA.png" alt="image-20241122153724308" style="zoom:50%;" />
+
+积分有x的情况，不能直接求导
+
+方法1
+
+![image-20241122155142135](https://s2.loli.net/2024/11/22/bqgNrasWxGcDjow.png)
+
+方法2 拆开算
+
+方法3 换元
+
+将对应的内容换成t或者类似的即可
+
+方法4 凑微分
+
+<img src="https://s2.loli.net/2024/11/22/6Av42zVucMnWq7T.png" alt="image-20241122163657267" style="zoom:50%;" />
+
+## 含有变限积分的极限计算
+
+例题
+
+<img src="https://s2.loli.net/2024/11/22/Dw78uZvGnmMjl9Q.png" alt="image-20241122164402956" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/22/pE2oF8yrmZxS3Xg.png" alt="image-20241122165105503" style="zoom:50%;" />
+
+# 定积分
+
+## 基本计算
+
+正常计算与不定积分一致，只是需要带入上下限的值，换元必换上下限
+
+例题
+
+<img src="https://s2.loli.net/2024/11/22/4Rd9M3YslNKSzjh.png" alt="image-20241122193907183" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/22/vlhRx9rjKefWX8A.png" alt="image-20241122204224946" style="zoom:50%;" />
+
+## 一个常用公式
+
