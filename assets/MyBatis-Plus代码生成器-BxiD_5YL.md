@@ -90,7 +90,6 @@ public class MyBatisPlusGenerator {
         // 设置数据库类型
         dsConfig.setDbType(DbType.MYSQL)
                 .setDriverName("com.mysql.cj.jdbc.Driver")
-                //TODO  TODO  TODO  TODO
                 .setUrl("jdbc:mysql://localhost:13306/mall?serverTimezone=UTC&useSSL=false")
                 .setUsername("root")
                 .setPassword("密码");
