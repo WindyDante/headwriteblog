@@ -1,13 +1,16 @@
 <script setup>
 import { useStore } from "vuex"; // 引入 Vuex store
 import { useRouter } from "vue-router"; // 引入 Vue Router
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
+import { loadingState } from "@/stores/loading";
+import GlobalLoading from "@/components/GlobalLoading.vue"; // 引入全局加载组件
 
 const store = useStore();
 const router = useRouter();
 
 // 用于存储文章数据
 const markdownFiles = ref([]);
+const isContentLoaded = ref(false); // 标志内容是否加载完成
 
 // 从缓存中获取数据
 const loadFromCache = () => {
@@ -15,8 +18,12 @@ const loadFromCache = () => {
   return cachedData ? JSON.parse(cachedData) : null;
 };
 
-// 加载数据到缓存
-const loadMarkdownFiles = () => {
+// 确保数据加载完成并更新视图
+const ensureDataLoaded = async () => {
+  if (store.state.markdownFiles.length === 0) {
+    // 仅在数据未加载时调用加载函数
+    await store.dispatch("loadMarkdownFiles");
+  }
   const cachedData = loadFromCache();
   if (cachedData) {
     markdownFiles.value = cachedData; // 使用缓存数据
@@ -45,10 +52,34 @@ const goToArticle = (file) => {
   });
 };
 
+// 监听路由变化，加载数据
+watch(
+  () => router.currentRoute.value,
+  async () => {
+    loadingState.show("正在加载页面...");
+    isContentLoaded.value = false; // 重置加载状态
+    try {
+      if (router.currentRoute.value.name === "Main") {
+        await ensureDataLoaded(); // 确保数据加载完成
+      }
+    } finally {
+      loadingState.hide();
+      isContentLoaded.value = true; // 标记加载完成
+    }
+  }
+);
+
 // 初始化加载
-onMounted(() => {
-  loadMarkdownFiles();
-  console.log("main组件完成");
+onMounted(async () => {
+  loadingState.show("正在加载页面...");
+  try {
+    await ensureDataLoaded(); // 确保数据加载完成
+  } catch {
+    console.error("加载失败");
+  } finally {
+    loadingState.hide();
+    isContentLoaded.value = true; // 标记加载完成
+  }
 });
 </script>
 
@@ -58,7 +89,8 @@ onMounted(() => {
       <h1>江湖夜雨十年灯</h1>
       <p>一壶浊酒尽余欢，今宵别梦寒。</p>
     </header>
-    <ul class="blog-list">
+    <GlobalLoading />
+    <ul class="blog-list" v-if="isContentLoaded">
       <li
         v-for="file in markdownFiles"
         :key="file.name"

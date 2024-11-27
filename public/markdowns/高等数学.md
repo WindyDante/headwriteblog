@@ -826,7 +826,7 @@ Cxx的求解方式
 
 若没有则可以看n为0
 
-![image-20241124164826460](https://s2.loli.net/2024/11/24/DgvPaKts3cXubnV.png)
+<img src="https://s2.loli.net/2024/11/24/DgvPaKts3cXubnV.png" alt="image-20241124164826460" style="zoom:50%;" />
 
 ## 奇偶性求定积分
 
@@ -835,4 +835,182 @@ Cxx的求解方式
 <img src="https://s2.loli.net/2024/11/24/LFXpyCfaW2h1NIM.png" alt="image-20241124170001883" style="zoom:50%;" />
 
 如果是非奇非偶的，可以拆成两项观察对称性
+
+## 周期性求定积分
+
+解法
+
+![image-20241124203706152](https://s2.loli.net/2024/11/24/qkeEwZHItDRs2hc.png)
+
+例题
+
+<img src="https://s2.loli.net/2024/11/24/oClncDx9KFYvufE.png" alt="image-20241124204452343" style="zoom:50%;" />
+
+## 关于绝对值函数的定积分
+
+解法->令其为0，找到分段点，分开积分
+
+<img src="https://s2.loli.net/2024/11/24/241kJ6bcgjfqVv3.png" alt="image-20241124205808250" style="zoom:50%;" />
+
+## 求分段函数的定积分
+
+解法，分段算
+
+<img src="https://s2.loli.net/2024/11/24/cnz3HLXi1tGslZb.png" alt="image-20241124223647207" style="zoom:50%;" />
+
+补充：
+
+定积分的结果与积分变量无关，因为符号变了，上下限不变的情况下，结果是不变的
+
+<img src="https://s2.loli.net/2024/11/25/MT4dNwam3UAkFsp.png" alt="image-20241124230241715" style="zoom:50%;" />
+
+## 求分段函数的变限积分
+
+解法
+
+![image-20241125210034046](https://s2.loli.net/2024/11/25/Jwc7tEqFa25d1Ni.png)
+
+因为函数要求的是f(t)dt，所以，我们让f(x) = 对应的t，将x全部换为t
+
+而t的范围是在0~x之间的，那么t是小于x的，所以可以画一个区间，根据条件，我们可以比较x与二分之π的范围，因为t的范围是由x的范围决定的，所以进行比较
+
+假如x小于2分之π，那么t肯定小于2分之π，如下图所示，此时x是小于二分之π的
+
+![image-20241125210436600](https://s2.loli.net/2024/11/25/2c3P7zUiC5eNrmt.png)
+
+当x大于二分之π，就需要进行分段
+
+<img src="https://s2.loli.net/2024/11/25/OH3aLSpGMxPjAol.png" alt="image-20241125210630595" style="zoom:50%;" />
+
+具体流程，看这个：https://www.bilibili.com/video/BV1X8411f72b/?vd_source=b39debcbe1026bb04f6c19f233bab974&spm_id_from=333.788.videopod.episodes&p=65
+
+## 求分段函数的不定积分
+
+![image-20241125214520064](https://s2.loli.net/2024/11/25/Pq3OhtQafITZU5A.png)
+
+分成两段求积分，此时，分割点为0，那么通过分割点找到x>0和x<=0的情况进行带入f(x)求积分
+
+求得积分后，出现两个C，令一个为c1另一个为c2，然后将间隔点带入原结果算出c1 = xxx 和c2做的计算，或算出c2 = xxx和c1做的计算，最后回代入到对应的c1或c2，得出结果
+
+## 最值函数的积分
+
+解法
+
+<img src="https://s2.loli.net/2024/11/25/V3QGwWlHmEbySPT.png" alt="image-20241125215314302" style="zoom:50%;" />
+
+## 抽象函数的积分计算
+
+解法
+
+<img src="https://s2.loli.net/2024/11/25/r6vgZpcP3OkNDHl.png" alt="image-20241125221520101" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/25/dA5ba8NkrJKlG3p.png" alt="image-20241125221741783" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/25/K6DrkumOQlNZqeI.png" alt="image-20241125221928016" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/c3meoGwtqZsyurQ.png" alt="image-20241125222243428" style="zoom:50%;" />
+
+## 定积分定义求极限
+
+步骤
+
+<img src="https://s2.loli.net/2024/11/26/ZEkv1Q2IPrsR48l.png" alt="image-20241126201624224" style="zoom:50%;" />
+
+例题
+
+<img src="https://s2.loli.net/2024/11/26/UiC4MsR7TuSv5Bp.png" alt="image-20241126202024650" style="zoom:50%;" />
+
+## 积分的估值
+
+详情看这个：https://www.bilibili.com/video/BV1X8411f72b?vd_source=b39debcbe1026bb04f6c19f233bab974&spm_id_from=333.788.player.switch&p=70
+
+## 积分的比较
+
+同区间的积分比较
+
+<img src="https://s2.loli.net/2024/11/27/FhcyvpKPmf2DeoY.png" alt="image-20241127133058174" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/MPh7gH8W6SJOx2p.png" alt="image-20241127133224745" style="zoom:50%;" />
+
+结论
+
+![image-20241127133513933](https://s2.loli.net/2024/11/27/cWNC52dzeF7xlBb.png)
+
+这里的x代表一个整体，只有整体的情况<1或>1才能决定后面的情况，比如(x-1)的1/2次，此时x-1就是整体，然后带入上下限计算它的整体
+
+具体步骤为
+
+![image-20241127140438300](https://s2.loli.net/2024/11/27/iekm3KWn6qHhJ7U.png)
+
+例题
+
+<img src="https://s2.loli.net/2024/11/27/vDPuf15BKLIojCp.png" alt="image-20241127134944025" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/ceXUybopMvKrSd9.png" alt="image-20241127135106713" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/puiPKzaFtYVIbdh.png" alt="image-20241127135320171" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/CYnmqdbNcl6BeKi.png" alt="image-20241127135706577" style="zoom:50%;" />
+
+## 定积分的几何意义
+
+流程
+
+![image-20241127145259399](https://s2.loli.net/2024/11/27/p5wBGAIyEm8MHVJ.png)
+
+<img src="https://s2.loli.net/2024/11/27/Ehy1pBkKAROFv5z.png" alt="image-20241127145809688" style="zoom:50%;" />
+
+公式
+
+![image-20241127145935069](https://s2.loli.net/2024/11/27/6HMCLPbSITvtA1e.png)
+
+<img src="https://s2.loli.net/2024/11/27/k9ebODiSnRW7daP.png" alt="image-20241127150107364" style="zoom:50%;" />
+
+三角函数
+
+<img src="https://s2.loli.net/2024/11/27/E3u2sU6Ox1wRWSi.png" alt="image-20241127150412904" style="zoom:50%;" />
+
+## 求平面图形面积
+
+解法，利用定积分求图形面积
+
+<img src="https://s2.loli.net/2024/11/27/bVR5NPd29I4g8cF.png" alt="image-20241127155600462" style="zoom:50%;" />
+
+例题
+
+<img src="https://s2.loli.net/2024/11/27/MPSG8eHbuoxJv6T.png" alt="image-20241127155801789" style="zoom:50%;" />
+
+## 图形的绘制
+
+画图
+
+<img src="https://s2.loli.net/2024/11/27/eFAtjucxdpTU6fZ.png" alt="image-20241127163912217" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/qoNFj8JyZwAVYTu.png" alt="image-20241127164424033" style="zoom:50%;" />
+
+## 旋转体积
+
+解法
+
+<img src="https://s2.loli.net/2024/11/27/Yc6UzOxjR7P5LhC.png" alt="image-20241127165946878" style="zoom:50%;" />
+
+![image-20241127172240540](https://s2.loli.net/2024/11/27/iXsRj5HrngUNxLy.png)
+
+例题
+
+<img src="https://s2.loli.net/2024/11/27/OToyZUQ8sJCbjLz.png" alt="image-20241127172200723" style="zoom:50%;" />
+
+## 解关于积分的等式(定积分)
+
+解法
+
+<img src="https://s2.loli.net/2024/11/27/k6WXwQnxtJUeqpM.png" alt="image-20241127211703684" style="zoom:50%;" />
+
+## 解关于积分的等式(变限积分)
+
+求导
+
+<img src="https://s2.loli.net/2024/11/27/mrdhQ4GCILAkYig.png" alt="image-20241127214516821" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/27/MHJTh7AEkdwf85L.png" alt="image-20241127214709830" style="zoom:50%;" />
 
