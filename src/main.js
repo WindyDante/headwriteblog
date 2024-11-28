@@ -13,7 +13,6 @@ import createLineNumbertPlugin from '@kangc/v-md-editor/lib/plugins/line-number/
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
 import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
 import hljs from 'highlight.js';
-import vPreviewImage from 'v-preview-image'
 
 
 VMdPreview.use(githubTheme, {
@@ -29,5 +28,4 @@ const app = createApp(App);
 app.use(router);
 app.use(store);
 app.use(VMdPreview)
-app.use(vPreviewImage)
 app.mount('#app');

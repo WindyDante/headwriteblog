@@ -32,8 +32,8 @@
   </div>
 </template>
 
+
 <script>
-import { preview, closePreview } from "v-preview-image";
 import { ref, onMounted, nextTick, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
@@ -96,7 +96,18 @@ export default {
     };
 
     const handleImageClick = (images, currentIndex) => {
-      preview(currentIndex, images);
+      // 生成一个用于 Fancybox 的 HTML 结构
+      const items = images.map((image) => ({
+        src: image, // 图片的 URL
+        type: "image", // 指定类型为图片
+      }));
+
+      // 使用 Fancybox 打开图片并设置当前显示的图片索引
+      $.fancybox.open(items, {
+        index: currentIndex, // 设置当前图片的索引
+        buttons: ["zoom", "close"], // 可以自定义按钮
+        loop: true, // 是否循环浏览图片
+      });
     };
 
     const handleAnchorClick = (anchor) => {

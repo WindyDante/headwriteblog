@@ -1,0 +1,2 @@
+var r,s;function f(){return s||(s=1,r=n=>{const i=n.renderer.rules.fence;n.renderer.rules.fence=(...o)=>{const e=i(...o),c=e.slice(e.indexOf("<code>"),e.indexOf("</code>")).split(`
+`),l=`<div class="line-numbers-wrapper">${[...Array(c.length-1)].map((b,a)=>`<span class="line-number">${a+1}</span><br>`).join("")}</div>`;return e.replace("<!--beforeend-->",`${l}<!--beforeend-->`).replace("extra-class","line-numbers-mode")}}),r}export{f as r};

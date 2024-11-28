@@ -1014,3 +1014,31 @@ Cxx的求解方式
 
 <img src="https://s2.loli.net/2024/11/27/MHJTh7AEkdwf85L.png" alt="image-20241127214709830" style="zoom:50%;" />
 
+## 广义积分
+
+解法，收敛结果为数，发散结果为无穷
+
+<img src="https://s2.loli.net/2024/11/28/A6WDUGvLJSohQR3.png" alt="image-20241128161521642" style="zoom:50%;" />
+
+分成两段
+
+![image-20241128162114774](https://s2.loli.net/2024/11/28/pmjL6WoQ7xEBSZk.png)
+
+# 微分方程
+
+## 一阶微分方程
+
+### 公式法
+
+解法
+
+<img src="https://s2.loli.net/2024/11/28/icZ4OKMes72RQIV.png" alt="image-20241128173732060" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/28/TwOlV2dsk3fWzYr.png" alt="image-20241128181419797" style="zoom:50%;" />
+
+求特解需要先求出通解，也就是跟随上图公式求出通解
+
+求出通解后，将题目上的条件带入结果式子，求出c，最后将结果式子与c(求出的结果值)一起算出为y，则为特解
+
+
+
