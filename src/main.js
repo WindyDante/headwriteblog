@@ -9,13 +9,19 @@ import '@kangc/v-md-editor/lib/style/preview.css';
 import githubTheme from '@kangc/v-md-editor/lib/theme/github';
 import '@kangc/v-md-editor/lib/theme/style/github.css';
 import store from '@/store';
-
-// highlightjs
+import createLineNumbertPlugin from '@kangc/v-md-editor/lib/plugins/line-number/index';
+import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
+import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
 import hljs from 'highlight.js';
+import vPreviewImage from 'v-preview-image'
+
 
 VMdPreview.use(githubTheme, {
   Hljs: hljs,
 });
+VMdPreview.use(createLineNumbertPlugin());
+VMdPreview.use(createCopyCodePlugin());
+
 
 const app = createApp(App);
 
@@ -23,4 +29,5 @@ const app = createApp(App);
 app.use(router);
 app.use(store);
 app.use(VMdPreview)
+app.use(vPreviewImage)
 app.mount('#app');

@@ -1,21 +1,40 @@
 <template>
-  <div class="content-container">
-    <header class="content-header">
-      <h1 class="article-title">{{ article.title }}</h1>
-      <p class="article-date">发布日期：{{ article.date }}</p>
-    </header>
-    <!-- 使用 markdown 编辑器，切换为预览模式 -->
-    <v-md-preview
-      v-if="article.content"
-      :text="article.content"
-      :key="article.title"
-    ></v-md-preview>
-    <p v-else>加载中...</p>
+  <div class="content-wrapper">
+    <!-- 锚点导航 -->
+    <nav class="anchor-navigation" v-if="isDesktop">
+      <div
+        v-for="anchor in titles"
+        :key="anchor.lineIndex"
+        :style="{ paddingLeft: `${anchor.indent * 20}px` }"
+        class="anchor-item"
+        @click="handleAnchorClick(anchor)"
+      >
+        <a style="cursor: pointer">{{ anchor.title }}</a>
+      </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <div class="content-container">
+      <header class="content-header">
+        <h1 class="article-title">{{ article.title }}</h1>
+        <p class="article-date">发布日期：{{ article.date }}</p>
+      </header>
+      <v-md-preview
+        @image-click="handleImageClick"
+        ref="previewRef"
+        @copy-code-success="handleCopyCodeSuccess"
+        v-if="article.content"
+        :text="article.content"
+        :key="article.title"
+      ></v-md-preview>
+      <p v-else>加载中...</p>
+    </div>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from "vue";
+import { preview, closePreview } from "v-preview-image";
+import { ref, onMounted, nextTick, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
 
@@ -28,19 +47,35 @@ export default {
       date: route.params.date || "未知日期",
       content: "",
     });
+    const titles = ref([]);
+    const previewRef = ref(null); // 引用 v-md-preview 组件
+
+    const isDesktop = ref(true); // 用于判断是否为桌面设备
+
+    // 判断是否为桌面设备
+    const checkIfDesktop = () => {
+      isDesktop.value = window.innerWidth >= 1024;
+    };
+
+    // 监听窗口大小变化
+    window.addEventListener("resize", checkIfDesktop);
+    onMounted(checkIfDesktop); // 初始化时检查设备
 
     const loadFromCache = (title) => {
       const cachedArticle = sessionStorage.getItem(`article-${title}`);
       return cachedArticle ? JSON.parse(cachedArticle) : null;
     };
 
+    const handleCopyCodeSuccess = () => {
+      // #TODO 添加复制成功提示模态框
+      console.log("复制成功");
+    };
+
     const loadArticleContent = async (title) => {
       const cachedArticle = loadFromCache(title);
-
       if (cachedArticle) {
         article.value = cachedArticle;
       } else {
-        // 从 Vuex 获取文章内容
         const matchingArticle = store.state.markdownFiles.find(
           (file) => file.title === title
         );
@@ -50,7 +85,6 @@ export default {
             date: article.value.date,
             content: matchingArticle.content,
           };
-          // 将文章内容存入缓存
           sessionStorage.setItem(
             `article-${title}`,
             JSON.stringify(article.value)
@@ -61,88 +95,172 @@ export default {
       }
     };
 
+    const handleImageClick = (images, currentIndex) => {
+      preview(currentIndex, images);
+    };
+
+    const handleAnchorClick = (anchor) => {
+      const preview = previewRef.value;
+      const { lineIndex } = anchor;
+
+      const heading = preview.$el.querySelector(
+        `[data-v-md-line="${lineIndex}"]`
+      );
+      if (heading) {
+        preview.scrollToTarget({
+          target: heading,
+          scrollContainer: window,
+          top: 60,
+        });
+      }
+    };
+
+    const generateAnchors = () => {
+      const preview = previewRef.value; // 获取组件实例
+      if (!preview) return;
+
+      const previewEl = preview.$el; // 获取 DOM 元素
+      if (!previewEl) return;
+
+      const anchors = previewEl.querySelectorAll("h1, h2, h3, h4, h5, h6");
+      const filteredAnchors = Array.from(anchors).filter((el) =>
+        el.innerText.trim()
+      );
+      if (!filteredAnchors.length) return;
+
+      const hTags = Array.from(
+        new Set(filteredAnchors.map((el) => el.tagName))
+      ).sort();
+      titles.value = filteredAnchors.map((el) => ({
+        title: el.innerText,
+        lineIndex: el.getAttribute("data-v-md-line"),
+        indent: hTags.indexOf(el.tagName),
+      }));
+    };
+
     onMounted(() => {
       if (route.params.title) {
-        loadArticleContent(route.params.title);
+        loadArticleContent(route.params.title).then(() => {
+          nextTick(() => {
+            generateAnchors(); // 确保组件渲染后再生成锚点
+          });
+        });
       }
     });
 
+    // 监听 article.content 的变化，确保在内容更新后生成锚点
+    watch(
+      () => article.value.content,
+      (newContent) => {
+        if (newContent) {
+          nextTick(() => {
+            generateAnchors(); // 在内容更新后生成锚点
+          });
+        }
+      }
+    );
+
     return {
       article,
+      titles,
+      handleCopyCodeSuccess,
+      handleAnchorClick,
+      handleImageClick,
+      previewRef, // 绑定到 v-md-preview
+      isDesktop,
     };
   },
 };
 </script>
 
 <style scoped>
-.content-header {
-  padding-top: 20px;
-  text-align: center;
+/* 基本样式 */
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
-.v-md-editor {
-  color: #801dae;
-}
-
-/* 确保使用 ::v-deep 来穿透组件的样式 */
-.v-md-editor ::v-deep img.loading {
-  background-image: url("@/assets/img/loading.gif");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 200px;
-  width: 100%;
-  display: block;
-  opacity: 0.6; /* 加入透明度，给 loading 效果 */
-  transition: opacity 0.5s ease; /* 过渡效果 */
-}
-
-.v-md-editor ::v-deep img.error {
-  background-image: url("@/assets/img/loading.gif"); /* 错误图标 */
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 200px;
-  width: 100%;
-  display: block;
-}
-
-/* 图片样式 */
-.v-md-editor ::v-deep img {
-  display: block;
-  width: auto;
-  transition: opacity 0.5s ease;
-}
-
-/* 图片容器样式 */
 .content-container {
+  flex: 1;
+  padding: 20px;
+  max-width: 85%;
   box-sizing: border-box;
-  min-width: 200px;
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 15px;
 }
 
-@media (max-width: 767px) {
-  .content-container {
-    padding: 15px;
+.article-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.article-date {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* 锚点导航样式 */
+.anchor-navigation {
+  width: 15%;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+}
+
+.anchor-item {
+  margin-bottom: 10px;
+}
+
+.anchor-item a {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.anchor-item a:hover {
+  text-decoration: underline;
+}
+
+/* 移动端和桌面端自适应 */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .anchor-navigation {
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+  }
+
+  .anchor-item {
+    display: inline-block;
+    margin-right: 15px;
   }
 }
 
-/* 高亮的代码块样式 */
-.highlight {
-  background-color: #f6f8fa;
-  border-radius: 5px;
-  padding: 10px;
-  overflow-x: auto;
-}
+@media (max-width: 600px) {
+  .content-container {
+    padding: 10px;
+  }
 
-.highlight pre {
-  background: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  .article-title {
+    font-size: 1.2rem;
+  }
+
+  .article-date {
+    font-size: 0.9rem;
+  }
+
+  .anchor-item a {
+    font-size: 0.9rem;
+  }
 }
 </style>
