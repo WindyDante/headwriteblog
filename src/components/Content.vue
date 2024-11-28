@@ -20,7 +20,6 @@
         <p class="article-date">发布日期：{{ article.date }}</p>
       </header>
       <v-md-preview
-        @image-click="handleImageClick"
         ref="previewRef"
         @copy-code-success="handleCopyCodeSuccess"
         v-if="article.content"
@@ -32,11 +31,12 @@
   </div>
 </template>
 
-
 <script>
 import { ref, onMounted, nextTick, watch } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export default {
   setup() {
@@ -67,7 +67,6 @@ export default {
     };
 
     const handleCopyCodeSuccess = () => {
-      // #TODO 添加复制成功提示模态框
       console.log("复制成功");
     };
 
@@ -93,21 +92,6 @@ export default {
           article.value.content = "文章未找到";
         }
       }
-    };
-
-    const handleImageClick = (images, currentIndex) => {
-      // 生成一个用于 Fancybox 的 HTML 结构
-      const items = images.map((image) => ({
-        src: image, // 图片的 URL
-        type: "image", // 指定类型为图片
-      }));
-
-      // 使用 Fancybox 打开图片并设置当前显示的图片索引
-      $.fancybox.open(items, {
-        index: currentIndex, // 设置当前图片的索引
-        buttons: ["zoom", "close"], // 可以自定义按钮
-        loop: true, // 是否循环浏览图片
-      });
     };
 
     const handleAnchorClick = (anchor) => {
@@ -149,23 +133,37 @@ export default {
       }));
     };
 
+    const addFancyboxToImages = () => {
+      // 为所有图片添加 data-fancybox 属性
+      const images = previewRef.value?.$el.querySelectorAll("img");
+      images?.forEach((img) => {
+        img.setAttribute("data-fancybox", "gallery");
+      });
+
+      // 初始化 Fancybox
+      Fancybox.bind('[data-fancybox="gallery"]', {
+        // Optional: Customize Fancybox options here
+      });
+    };
+
     onMounted(() => {
       if (route.params.title) {
         loadArticleContent(route.params.title).then(() => {
           nextTick(() => {
             generateAnchors(); // 确保组件渲染后再生成锚点
+            addFancyboxToImages(); // 为图片添加 Fancybox 属性
           });
         });
       }
     });
 
-    // 监听 article.content 的变化，确保在内容更新后生成锚点
     watch(
       () => article.value.content,
       (newContent) => {
         if (newContent) {
           nextTick(() => {
             generateAnchors(); // 在内容更新后生成锚点
+            addFancyboxToImages(); // 重新为图片添加 Fancybox 属性
           });
         }
       }
@@ -176,13 +174,14 @@ export default {
       titles,
       handleCopyCodeSuccess,
       handleAnchorClick,
-      handleImageClick,
       previewRef, // 绑定到 v-md-preview
       isDesktop,
     };
   },
 };
 </script>
+
+
 
 <style scoped>
 /* 基本样式 */

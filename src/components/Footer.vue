@@ -1,7 +1,8 @@
 <template>
   <div id="footer">
     <!-- -->
-    Footer
+    <div>你好 hello world 世界</div>
+    <div>!!</div>
   </div>
 </template>
 
@@ -18,7 +19,10 @@ export default {
 </script>
 <style scoped>
 #footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
-  height: 100px;
+  padding-bottom: 1%;
 }
 </style>

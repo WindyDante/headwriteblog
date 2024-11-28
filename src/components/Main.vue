@@ -1,32 +1,55 @@
+<template>
+  <div class="blog-container">
+    <header class="blog-header">
+      <h1>江湖夜雨十年灯</h1>
+      <p>一壶浊酒尽余欢，今宵别梦寒。</p>
+    </header>
+    <GlobalLoading />
+    <!-- 使用transition-group来包裹li列表，添加动画 -->
+    <transition-group
+      name="fade"
+      tag="ul"
+      class="blog-list"
+      v-if="isContentLoaded"
+    >
+      <li
+        v-for="(file, index) in markdownFiles"
+        :key="file.name"
+        @click="goToArticle(file)"
+        :style="{ animationDelay: `${index * 0.1}s` }"
+      >
+        <h2>{{ file.title }}</h2>
+        <p>{{ file.daysAgo }} 天前</p>
+      </li>
+    </transition-group>
+  </div>
+</template>
+
 <script setup>
-import { useStore } from "vuex"; // 引入 Vuex store
-import { useRouter } from "vue-router"; // 引入 Vue Router
+import { useStore } from "vuex";
+import { useRouter } from "vue-router";
 import { ref, onMounted, watch } from "vue";
 import { loadingState } from "@/stores/loading";
-import GlobalLoading from "@/components/GlobalLoading.vue"; // 引入全局加载组件
+import GlobalLoading from "@/components/GlobalLoading.vue";
 
 const store = useStore();
 const router = useRouter();
 
-// 用于存储文章数据
 const markdownFiles = ref([]);
-const isContentLoaded = ref(false); // 标志内容是否加载完成
+const isContentLoaded = ref(false);
 
-// 从缓存中获取数据
 const loadFromCache = () => {
   const cachedData = sessionStorage.getItem("markdownFiles");
   return cachedData ? JSON.parse(cachedData) : null;
 };
 
-// 确保数据加载完成并更新视图
 const ensureDataLoaded = async () => {
   if (store.state.markdownFiles.length === 0) {
-    // 仅在数据未加载时调用加载函数
     await store.dispatch("loadMarkdownFiles");
   }
   const cachedData = loadFromCache();
   if (cachedData) {
-    markdownFiles.value = cachedData; // 使用缓存数据
+    markdownFiles.value = cachedData;
   } else {
     markdownFiles.value = store.state.markdownFiles.map((file) => ({
       name: file.name,
@@ -37,71 +60,48 @@ const ensureDataLoaded = async () => {
     sessionStorage.setItem(
       "markdownFiles",
       JSON.stringify(markdownFiles.value)
-    ); // 存入缓存
+    );
   }
 };
 
-// 跳转到文章页面
 const goToArticle = (file) => {
   router.push({
     name: "Content",
     params: {
-      title: file.title, // 传递标题
-      date: file.date, // 传递日期
+      title: file.title,
+      date: file.date,
     },
   });
 };
 
-// 监听路由变化，加载数据
 watch(
   () => router.currentRoute.value,
   async () => {
     loadingState.show("正在加载页面...");
-    isContentLoaded.value = false; // 重置加载状态
+    isContentLoaded.value = false;
     try {
       if (router.currentRoute.value.name === "Main") {
-        await ensureDataLoaded(); // 确保数据加载完成
+        await ensureDataLoaded();
       }
     } finally {
       loadingState.hide();
-      isContentLoaded.value = true; // 标记加载完成
+      isContentLoaded.value = true;
     }
   }
 );
 
-// 初始化加载
 onMounted(async () => {
   loadingState.show("正在加载页面...");
   try {
-    await ensureDataLoaded(); // 确保数据加载完成
+    await ensureDataLoaded();
   } catch {
     console.error("加载失败");
   } finally {
     loadingState.hide();
-    isContentLoaded.value = true; // 标记加载完成
+    isContentLoaded.value = true;
   }
 });
 </script>
-
-<template>
-  <div class="blog-container">
-    <header class="blog-header">
-      <h1>江湖夜雨十年灯</h1>
-      <p>一壶浊酒尽余欢，今宵别梦寒。</p>
-    </header>
-    <GlobalLoading />
-    <ul class="blog-list" v-if="isContentLoaded">
-      <li
-        v-for="file in markdownFiles"
-        :key="file.name"
-        @click="goToArticle(file)"
-      >
-        <h2>{{ file.title }}</h2>
-        <p>{{ file.daysAgo }} 天前</p>
-      </li>
-    </ul>
-  </div>
-</template>
 
 <style scoped>
 .blog-container {
@@ -126,6 +126,7 @@ onMounted(async () => {
   text-align: center;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .blog-list li {
@@ -134,6 +135,9 @@ onMounted(async () => {
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+  opacity: 0; /* 初始透明 */
+  transform: translateY(20px); /* 初始偏移 */
+  animation: fadeIn 0.6s ease-out forwards; /* 使用动画 */
 }
 
 .blog-list h2 {
@@ -144,6 +148,29 @@ onMounted(async () => {
 .blog-list p {
   margin: 0;
   font-size: 0.9em;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 控制li出现的顺序 */
+.blog-list li:nth-child(n) {
+  animation-delay: calc(0.1s * var(--index));
+}
+
+.blog-list li.fade-enter-active,
+.blog-list li.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.blog-list li.fade-enter,
+.blog-list li.fade-leave-to {
+  opacity: 0;
 }
 
 /* Responsive Styles */
