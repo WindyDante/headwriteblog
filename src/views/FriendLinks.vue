@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO 鼠标移入阴影和卡片不在一个位置 -->
   <div class="friend-links-container">
     <!-- 显示好友分类名称 -->
     <h2>{{ friendData.class_name }}</h2>
@@ -30,6 +31,10 @@
           </div>
         </a>
       </div>
+    </div>
+    <!-- 友链申请 -->
+    <div class="apply-friends">
+      <a href="https://github.com/WindyDante/headwriteblog">友情链接申请--></a>
     </div>
     <Twikoo />
   </div>
@@ -76,6 +81,11 @@ export default {
 </script>
 
 <style scoped>
+.apply-friends {
+  margin: 1% 0;
+  font-size: 28px;
+  text-align: center;
+}
 .friend-links-container {
   max-width: 90%;
   margin: auto;

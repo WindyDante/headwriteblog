@@ -6,6 +6,7 @@
     </header>
     <GlobalLoading />
     <!-- 使用transition-group来包裹li列表，添加动画 -->
+    <!-- TODO 日期排序 -->
     <transition-group
       name="fade"
       tag="ul"

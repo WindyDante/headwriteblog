@@ -1048,3 +1048,14 @@ Cxx的求解方式
 
 ### 齐次式
 
+解法：换元
+
+<img src="https://s2.loli.net/2024/11/29/ixWvT4QjLIrlA9y.png" alt="image-20241129152238603" style="zoom:50%;" />
+
+### 伯努利方程
+
+解法
+
+<img src="https://s2.loli.net/2024/11/29/TGFoe67IvEkiQya.png" alt="image-20241129154824038" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/11/29/jImC1nLMi5Vkbqg.png" alt="image-20241129154929242" style="zoom:50%;" />

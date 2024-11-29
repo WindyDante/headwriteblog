@@ -12,7 +12,7 @@
  ```yaml
 - name: EastWind
   descr: 东风不与周郎便
-  avatar: http://qiniu.xianwu.store/Image_1727602993857.jpg
+  avatar: https://github.com/WindyDante.png
   url: https://996.windydante.top/
 ```
 

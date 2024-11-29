@@ -12,7 +12,9 @@
         <a style="cursor: pointer">{{ anchor.title }}</a>
       </div>
     </nav>
-
+    <!-- TODO 手机端文章过窄 
+    TODO 字体采用system-ui or sans-serif
+     -->
     <!-- 主内容 -->
     <div class="content-container">
       <header class="content-header">
