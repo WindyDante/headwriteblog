@@ -1,28 +1,34 @@
 <template>
   <div class="blog-container">
-    <header class="blog-header">
-      <h1>江湖夜雨十年灯</h1>
-      <p>一壶浊酒尽余欢，今宵别梦寒。</p>
-    </header>
     <GlobalLoading />
-    <!-- 使用transition-group来包裹li列表，添加动画 -->
-    <!-- TODO 日期排序 -->
-    <transition-group
-      name="fade"
-      tag="ul"
-      class="blog-list"
-      v-if="isContentLoaded"
-    >
-      <li
-        v-for="(file, index) in markdownFiles"
-        :key="file.name"
-        @click="goToArticle(file)"
-        :style="{ animationDelay: `${index * 0.1}s` }"
+    <div>
+      <!-- 写一个rss生成器的组件,并添加对应rss生成的功能 -->
+      <RSSGenerator :articles="markdownFiles" />
+    </div>
+    <div>
+      <header class="blog-header">
+        <h1>江湖夜雨十年灯</h1>
+        <p>一壶浊酒尽余欢，今宵别梦寒。</p>
+      </header>
+      <!-- 使用transition-group来包裹li列表，添加动画 -->
+      <!-- TODO 日期排序 -->
+      <transition-group
+        name="fade"
+        tag="ul"
+        class="blog-list"
+        v-if="isContentLoaded"
       >
-        <h2>{{ file.title }}</h2>
-        <p>{{ file.daysAgo }} 天前</p>
-      </li>
-    </transition-group>
+        <li
+          v-for="(file, index) in markdownFiles"
+          :key="file.name"
+          @click="goToArticle(file)"
+          :style="{ animationDelay: `${index * 0.1}s` }"
+        >
+          <h2>{{ file.title }}</h2>
+          <p>{{ file.daysAgo }} 天前</p>
+        </li>
+      </transition-group>
+    </div>
   </div>
 </template>
 
@@ -32,6 +38,7 @@ import { useRouter } from "vue-router";
 import { ref, onMounted, watch } from "vue";
 import { loadingState } from "@/stores/loading";
 import GlobalLoading from "@/components/GlobalLoading.vue";
+import RSSGenerator from "@/components/RSSGenerator.vue";
 
 const store = useStore();
 const router = useRouter();

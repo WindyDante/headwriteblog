@@ -34,7 +34,7 @@ const router = createRouter({
           path: "/content/:title/:date",
           name: "Content",
           component: () => import("@/components/Content.vue")
-        }
+        },
       ]
     }
    

@@ -112,7 +112,7 @@ cos是邻边比斜边
 
 特殊值及图像
 
-![image-20240807215332157](https://s2.loli.net/2024/08/08/6FgbuIApzlsZPBR.png)
+<img src="https://s2.loli.net/2024/08/08/6FgbuIApzlsZPBR.png" alt="image-20240807215332157" style="zoom:50%;" />
 
 ### tanx
 
@@ -120,21 +120,21 @@ tanx是对边比邻边
 
 特殊值及基本情况
 
-![image-20240807215650531](https://s2.loli.net/2024/08/08/2bFtBzsmMc97Uue.png)
+<img src="https://s2.loli.net/2024/08/08/2bFtBzsmMc97Uue.png" alt="image-20240807215650531" style="zoom:50%;" />
 
 tanx图像
 
-![image-20240807215829893](https://s2.loli.net/2024/08/08/k48lKhpgneX5rf6.png)
+<img src="https://s2.loli.net/2024/08/08/k48lKhpgneX5rf6.png" alt="image-20240807215829893" style="zoom:50%;" />
 
 ### 三角函数公式
 
 <img src="https://s2.loli.net/2024/08/08/9xQZmC4hb3OrIvW.png" alt="image-20240807220724828" style="zoom:50%;" />
 
-![image-20240807220702872](https://s2.loli.net/2024/08/08/97u3aUbAtPIEWcY.png)
+<img src="https://s2.loli.net/2024/08/08/97u3aUbAtPIEWcY.png" alt="image-20240807220702872" style="zoom:50%;" />
 
 ### 和差化积
 
-![image-20240807220545556](https://s2.loli.net/2024/08/08/Orvl9RXb4CS7zD8.png)
+<img src="https://s2.loli.net/2024/08/08/Orvl9RXb4CS7zD8.png" alt="image-20240807220545556" style="zoom:50%;" />
 
 ### tan公式
 
@@ -146,35 +146,35 @@ tanx图像
 
 #### arctanx图像
 
-![image-20240807221236827](https://s2.loli.net/2024/08/08/uBn7i3lOSTAv1VC.png)
+<img src="https://s2.loli.net/2024/08/08/uBn7i3lOSTAv1VC.png" alt="image-20240807221236827" style="zoom:50%;" />
 
 #### 特殊值
 
 arcsin、arccos、arctan与sin、cos、tan相同
 
-![image-20240807221540546](https://s2.loli.net/2024/08/08/qgpbce8rVv6yTBR.png)
+<img src="https://s2.loli.net/2024/08/08/qgpbce8rVv6yTBR.png" alt="image-20240807221540546" style="zoom:50%;" />
 
 # 因式分解
 
-提公因式
+## 提公因式
 
 <img src="https://s2.loli.net/2024/08/08/YGwdLC2hTMK136D.png" alt="image-20240808204732462" style="zoom:50%;" />
 
-公式法
+## 公式法
 
 <img src="https://s2.loli.net/2024/08/08/pJFozgQqNfuICwP.png" alt="image-20240808205149676" style="zoom:50%;" />
 
-十字相乘法
+## 十字相乘法
 
 <img src="https://s2.loli.net/2024/08/08/hWlyoQOVHG1qijX.png" alt="image-20240808205424908" style="zoom:50%;" />
 
-找根法
+## 找根法
 
-![image-20240808210315474](https://s2.loli.net/2024/08/08/WhAK1UyF9Gp37cf.png)
+<img src="https://s2.loli.net/2024/08/08/WhAK1UyF9Gp37cf.png" alt="image-20240808210315474" style="zoom:50%;" />
 
 # 常见不等式解法
 
-![image-20240808212741215](https://s2.loli.net/2024/08/08/cL72k4FCrRptEM5.png)
+<img src="https://s2.loli.net/2024/08/08/cL72k4FCrRptEM5.png" alt="image-20240808212741215" style="zoom:50%;" />
 
 ## 分式不等式
 
@@ -1059,3 +1059,40 @@ Cxx的求解方式
 <img src="https://s2.loli.net/2024/11/29/TGFoe67IvEkiQya.png" alt="image-20241129154824038" style="zoom:50%;" />
 
 <img src="https://s2.loli.net/2024/11/29/jImC1nLMi5Vkbqg.png" alt="image-20241129154929242" style="zoom:50%;" />
+
+## 二阶微分方程
+
+### 右侧为0求通解
+
+解法
+
+<img src="https://s2.loli.net/2024/11/30/bA4jIYkWldEqeiv.png" alt="image-20241130211023114" style="zoom: 50%;" />
+
+### 右侧为0求特解
+
+特解就是在通解的基础上把xy的值带入求出c1,c2，然后回带即可
+
+<img src="https://s2.loli.net/2024/11/30/ubF8oBLtWTi9jkS.png" alt="image-20241130220656082" style="zoom:50%;" />
+
+### 右侧不为0求通解(第一类)
+
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20241130223640020.png" alt="image-20241130223640020" style="zoom:50%;" />
+
+根据类型设特解形式
+
+<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20241130223609211.png" alt="image-20241130223609211" style="zoom:50%;" />
+
+求出y*对其求导就可以得到原式带入解出其他结果值
+
+### 右侧不为0求通解(第二类)
+
+解法，有点乱
+
+总结下来就几步：找出A+bi，先求`y*`，所以要求出对左侧求导为0的结果，带入公式，算出r和a+bi之间的关系，根据关系算出`y*`的公式，求导回带到之前的式子里的二阶导计算，算出真正的`y*`,接着算出Y，带入式子计算即可
+
+<img src="https://s2.loli.net/2024/11/30/TknEvOdqhRYWZ4K.png" alt="image-20241130231630467" style="zoom:50%;" />
+
+### 右侧不为0求特解
+
+在之前通解的情况下，解出c1c2带回原式即可
+

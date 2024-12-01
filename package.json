@@ -16,6 +16,7 @@
     "axios": "^1.7.7",
     "babel-plugin-prismjs": "^2.1.0",
     "dayjs": "^1.11.13",
+    "feed": "^4.2.2",
     "github-markdown-css": "^5.7.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "^9.0.3",
