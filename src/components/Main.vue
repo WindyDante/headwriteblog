@@ -77,7 +77,6 @@ const goToArticle = (file) => {
     name: "Content",
     params: {
       title: file.title,
-      date: file.date,
     },
   });
 };

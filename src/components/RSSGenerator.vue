@@ -35,7 +35,7 @@ const generateRSS = () => {
 
   // 遍历文章并生成 RSS 条目
   articles.value.forEach((article) => {
-    console.log(article);
+    // console.log(article);
     // 生成每篇文章的链接，基于当前页面的 URL
     const articleLink = `${baseURL}#/content/${encodeURIComponent(
       article.name

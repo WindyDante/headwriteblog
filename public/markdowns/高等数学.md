@@ -1076,11 +1076,11 @@ Cxx的求解方式
 
 ### 右侧不为0求通解(第一类)
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20241130223640020.png" alt="image-20241130223640020" style="zoom:50%;" />
+<img src="https://s2.loli.net/2024/12/01/18bwQ9s274NIqxM.png" alt="image-20241130223640020" style="zoom:50%;" />
 
 根据类型设特解形式
 
-<img src="C:/Users/Administrator/AppData/Roaming/Typora/typora-user-images/image-20241130223609211.png" alt="image-20241130223609211" style="zoom:50%;" />
+<img src="https://s2.loli.net/2024/12/01/Q7ANLaYd3DoOfBU.png" alt="image-20241130223609211" style="zoom:50%;" />
 
 求出y*对其求导就可以得到原式带入解出其他结果值
 
@@ -1095,4 +1095,142 @@ Cxx的求解方式
 ### 右侧不为0求特解
 
 在之前通解的情况下，解出c1c2带回原式即可
+
+## 求解关于变限积分的等式
+
+解法
+
+对其求导计算求微分方程即可
+
+# 二重积分
+
+## 基本概念与性质
+
+概念
+
+<img src="https://s2.loli.net/2024/12/01/cMHkDruWs1J6LTq.png" alt="image-20241201151158437" style="zoom:50%;" />
+
+性质
+
+<img src="https://s2.loli.net/2024/12/01/YEazftk2cPuSlKA.png" alt="image-20241201152820335" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/12/01/ANQLGRmbxYnWe5T.png" alt="image-20241201153102293" style="zoom:50%;" />
+
+## 比大小
+
+<img src="https://s2.loli.net/2024/12/01/bSdlKuUgP5HhRtM.png" alt="image-20241201153258192" style="zoom:50%;" />
+
+## 估值定理
+
+<img src="https://s2.loli.net/2024/12/01/UAO3FyHm6xcuPvY.png" alt="image-20241201153531386" style="zoom:50%;" />
+
+## 圆的表达式
+
+<img src="https://s2.loli.net/2024/12/01/9TGhaorKD1g4d3R.png" alt="image-20241201161852983" style="zoom:50%;" />
+
+## 椭圆表达式
+
+<img src="https://s2.loli.net/2024/12/01/qGk8BzNyLCf9gSj.png" alt="image-20241201162003774" style="zoom:50%;" />
+
+## 直角坐标系下的计算公式
+
+将二重积分化为定积分来计算
+
+公式
+
+<img src="https://s2.loli.net/2024/12/01/UvweRJYnLNciHF5.png" alt="image-20241201165504629" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/12/01/HpL3fIveok4Yhla.png" alt="image-20241201165732355" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/12/01/i8jvrV2lZI5N39D.png" alt="image-20241201170014292" style="zoom:50%;" />
+
+### 解法
+
+<img src="https://s2.loli.net/2024/12/01/8irRej9TahLMF4c.png" alt="image-20241201170940881" style="zoom:50%;" />
+
+## 超越积分顺序选择
+
+题型，根据对应的x或y确定是哪个型，然后和基本的二重积分一样画图来写
+
+<img src="https://s2.loli.net/2024/12/01/S369QDByLeE58ZX.png" alt="image-20241201194700389" style="zoom:50%;" />
+
+## 交换积分次序
+
+x型与y型的顺序交换
+
+<img src="https://s2.loli.net/2024/12/01/4ZO5PmtH9Ld8ajb.png" alt="image-20241201210102993" style="zoom:50%;" />
+
+根据题目已知条件确定类型，然后画图确定范围
+
+## 极坐标系的二重积分
+
+极坐标如下图所示
+
+<img src="https://s2.loli.net/2024/12/01/RZn5U4xYFzl2qaG.png" alt="image-20241201212222125" style="zoom:50%;" />
+
+### 极坐标的三角关系
+
+<img src="https://s2.loli.net/2024/12/01/VU9AftylYING41D.png" alt="image-20241201212531854" style="zoom:50%;" />
+
+在极坐标下：x平方+y平方=r平方
+
+### 二重积分计算
+
+解法
+
+<img src="https://s2.loli.net/2024/12/01/hR78ZLodvFj4NVi.png" alt="image-20241201213357114" style="zoom:50%;" />
+
+上下限的确定方法
+
+<img src="https://s2.loli.net/2024/12/01/6CG7bcitje2HvOp.png" alt="image-20241201214042472" style="zoom:50%;" />
+
+半径r的取值范围
+
+<img src="https://s2.loli.net/2024/12/01/pzCHGU4c5Dda2XM.png" alt="image-20241201220202398" style="zoom:50%;" />
+
+常见的积分图像
+
+<img src="https://s2.loli.net/2024/12/01/jwqBHrgPZibkfh9.png" alt="image-20241201220756013" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/12/01/Z1G9L8IrEHzkUya.png" alt="image-20241201221128351" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/12/01/cdhe3Q7uImDUOaf.png" alt="image-20241201221347282" style="zoom:50%;" />
+
+## 二重积分对称性
+
+条件,偶倍奇零，画图，看关于哪个轴对称，然后看对应函数的奇偶性来算
+
+<img src="https://s2.loli.net/2024/12/01/9CnH7jtIGT4gosF.png" alt="image-20241201232156107" style="zoom:50%;" />
+
+注：若D对称，首选对称性
+
+# 多元函数微分学
+
+## 基本概念
+
+<img src="https://s2.loli.net/2024/12/02/jUgeVMJGwa25Zky.png" alt="image-20241202151422828" style="zoom:50%;" />
+
+## 定义域
+
+<img src="https://s2.loli.net/2024/12/02/65yFOn8vSNxIj1w.png" alt="image-20241202152756449" style="zoom:50%;" />
+
+## 二元函数对应法则
+
+解法
+
+<img src="https://s2.loli.net/2024/12/02/HhpiCatMsKmdNoQ.png" alt="image-20241202160223137" style="zoom:50%;" />
+
+例题
+
+<img src="https://s2.loli.net/2024/12/02/JzZ1saX3V468oSn.png" alt="image-20241202160541099" style="zoom:50%;" />
+
+## 二元函数极限
+
+<img src="https://s2.loli.net/2024/12/02/4927A5kdxFfYXCG.png" alt="image-20241202161011693" style="zoom:50%;" />
+
+例题
+
+<img src="https://s2.loli.net/2024/12/02/T9bFaoV3zvYws6S.png" alt="image-20241202162143839" style="zoom:50%;" />
+
+## 一阶偏导
 
