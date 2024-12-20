@@ -301,7 +301,7 @@ arcsin、arccos、arctan与sin、cos、tan相同
 
 常见有界：sin、cos、arctan
 
-![image-20240813210845806](https://s2.loli.net/2024/08/13/B1FADLPHrjKeEoI.png)
+<img src="https://s2.loli.net/2024/08/13/B1FADLPHrjKeEoI.png" alt="image-20240813210845806" style="zoom:50%;" />
 
 0乘有界=0
 
@@ -313,7 +313,7 @@ arcsin、arccos、arctan与sin、cos、tan相同
 
 ## 第二重要极限
 
-![image-20240814210457482](https://s2.loli.net/2024/08/14/VxGYN25lqQf4X6e.png)
+<img src="https://s2.loli.net/2024/08/14/VxGYN25lqQf4X6e.png" alt="image-20240814210457482" style="zoom:50%;" />
 
 <img src="https://s2.loli.net/2024/08/14/jOw1erlckI6bBHL.png" alt="image-20240814211811921" style="zoom:50%;" />
 
@@ -418,23 +418,23 @@ f(x0) = 左极限 = 右极限 = 连续
 
 常用公式
 
-![image-20240920220853858](https://s2.loli.net/2024/09/24/SOU8daiqyoNpbCQ.png)
+<img src="https://s2.loli.net/2024/09/24/SOU8daiqyoNpbCQ.png" alt="image-20240920220853858" style="zoom:50%;" />
 
-![image-20240920220944107](https://s2.loli.net/2024/09/24/leNopjiVMhrXzsH.png)
+<img src="https://s2.loli.net/2024/09/24/leNopjiVMhrXzsH.png" alt="image-20240920220944107" style="zoom:50%;" />
 
 例题
 
-![image-20240920221140608](https://s2.loli.net/2024/09/24/vSl61NBcF2yd5KH.png)
+<img src="https://s2.loli.net/2024/09/24/vSl61NBcF2yd5KH.png" alt="image-20240920221140608" style="zoom:50%;" />
 
 导数相乘和导数相加减不同
 
-![image-20240920221403043](https://s2.loli.net/2024/09/24/dtLjJCI8xgm34yH.png)
+<img src="https://s2.loli.net/2024/09/24/dtLjJCI8xgm34yH.png" alt="image-20240920221403043" style="zoom:50%;" />
 
-![image-20240920221707297](https://s2.loli.net/2024/09/24/vWmpXe5uGjA8Fob.png)
+<img src="https://s2.loli.net/2024/09/24/vWmpXe5uGjA8Fob.png" alt="image-20240920221707297" style="zoom:50%;" />
 
 导数相除
 
-![image-20240920221810272](https://s2.loli.net/2024/09/20/AktVQRm9n4TJFgO.png)
+<img src="https://s2.loli.net/2024/09/20/AktVQRm9n4TJFgO.png" alt="image-20240920221810272" style="zoom:50%;" />
 
 ## 复合函数求导
 
@@ -446,11 +446,11 @@ f(x0) = 左极限 = 右极限 = 连续
 
 复合函数乘法求导
 
-![image-20240921205725441](https://s2.loli.net/2024/09/24/sOvwZDrBPoRNUEa.png)
+<img src="https://s2.loli.net/2024/09/24/sOvwZDrBPoRNUEa.png" alt="image-20240921205725441" style="zoom:50%;" />
 
 ## 幂指式求导
 
-![image-20240921210927100](https://s2.loli.net/2024/09/24/cI6xitPAuvo8lSV.png)
+<img src="https://s2.loli.net/2024/09/24/cI6xitPAuvo8lSV.png" alt="image-20240921210927100" style="zoom:50%;" />
 
 计算完成后，改写为原式子
 
@@ -458,13 +458,13 @@ f(x0) = 左极限 = 右极限 = 连续
 
 例：
 
-![image-20240921212319313](https://s2.loli.net/2024/09/21/TCALpuhKOk28FZD.png)
+<img src="https://s2.loli.net/2024/09/21/TCALpuhKOk28FZD.png" alt="image-20240921212319313" style="zoom:50%;" />
 
 ## 隐函数求导
 
 隐函数的二阶导直接对一阶导再次求导即可
 
-![image-20240924205027272](https://s2.loli.net/2024/09/24/Yxl6LuU83FkQIgs.png)
+<img src="https://s2.loli.net/2024/09/24/Yxl6LuU83FkQIgs.png" alt="image-20240924205027272" style="zoom:50%;" />
 
 方法
 
@@ -472,9 +472,9 @@ f(x0) = 左极限 = 右极限 = 连续
 
 例题
 
-![image-20240924211306480](https://s2.loli.net/2024/09/24/7LW4Nvy8Y6QjVga.png)
+<img src="https://s2.loli.net/2024/09/24/7LW4Nvy8Y6QjVga.png" alt="image-20240924211306480" style="zoom:50%;" />
 
-![image-20240924212123558](https://s2.loli.net/2024/09/24/zyGMQWkBXZg1dmj.png)
+<img src="https://s2.loli.net/2024/09/24/zyGMQWkBXZg1dmj.png" alt="image-20240924212123558" style="zoom:50%;" />
 
 ![image-20240924213334439](https://s2.loli.net/2024/09/24/NCn6P5wgLmBG4KH.png)
 
@@ -564,7 +564,7 @@ Cxx的求解方式
 
 ## 微分计算
 
-![image-20241028215055400](https://s2.loli.net/2024/10/28/mZsqjYRKFE3xudH.png)
+<img src="https://s2.loli.net/2024/10/28/mZsqjYRKFE3xudH.png" alt="image-20241028215055400" style="zoom:50%;" />
 
 ![image-20241028215221699](https://s2.loli.net/2024/10/28/YgEIyqJT9RaWf75.png)
 
@@ -1234,3 +1234,64 @@ x型与y型的顺序交换
 
 ## 一阶偏导
 
+关于哪个函数的变化
+
+<img src="https://s2.loli.net/2024/12/02/LBMuWVbnedYiZPz.png" alt="image-20241202163418074" style="zoom:50%;" />
+
+写法
+
+<img src="https://s2.loli.net/2024/12/02/pPfYOqAG3QatI5R.png" alt="image-20241202164445756" style="zoom:50%;" />
+
+计算方法
+
+<img src="https://s2.loli.net/2024/12/02/Jo8y1VLQckObPKD.png" alt="image-20241202164635347" style="zoom:50%;" />
+
+例题
+
+dz/dy 就对y求导，x看作常数，反之同理
+
+<img src="https://s2.loli.net/2024/12/02/lqeBIgm4ybTKtNc.png" alt="image-20241202165039465" style="zoom:50%;" />
+
+## 全微分
+
+解法
+
+<img src="https://s2.loli.net/2024/12/03/AwmVpxSDUJy9Ttr.png" alt="image-20241203192400808" style="zoom:50%;" />
+
+## 可微与偏导的关系
+
+<img src="https://s2.loli.net/2024/12/03/gpQITqGfLvZiroj.png" alt="image-20241203193519444" style="zoom:50%;" />
+
+## 二阶偏导
+
+一般来说就是正常对x或y求两次导就行，也有特殊的，如下图所示
+
+<img src="https://s2.loli.net/2024/12/03/xV5Zak1XBJ6cghS.png" alt="image-20241203195612113" style="zoom:50%;" />
+
+## 二元隐函数一阶偏导
+
+<img src="https://s2.loli.net/2024/12/03/tFplRCT5PHq9VY3.png" alt="image-20241203200811459" style="zoom:50%;" />
+
+例题
+
+<img src="https://s2.loli.net/2024/12/03/zqwum46orYKg5hQ.png" alt="image-20241203201540622" style="zoom:50%;" />
+
+## 二元隐函数二阶偏导
+
+<img src="https://s2.loli.net/2024/12/03/25xBp84QLgwZt9W.png" alt="image-20241203202228376" style="zoom:50%;" />
+
+## 链式法则
+
+从外向里，层层求导
+
+链式法则：将每层函数关系罗列
+
+## 具体复合函数求导
+
+直接对给出条件带入
+
+## 抽象复合函数求导
+
+解法
+
+<img src="https://s2.loli.net/2024/12/03/si3cXeljEVTd1nJ.png" alt="image-20241203203841533" style="zoom:50%;" />

@@ -44,9 +44,15 @@ export default {
   setup() {
     const route = useRoute();
     const store = useStore();
+    const date = JSON.parse(sessionStorage.getItem("markdownFiles")).find(
+      (item) => item.title === route.params.title
+    ).date;
     const article = ref({
       title: route.params.title || "无标题",
-      date: route.params.date || "未知日期",
+      date:
+        new Date(date).toLocaleDateString("zh-CN", {
+          timeZone: "Asia/Shanghai",
+        }) || "未知日期",
       content: "",
     });
     const titles = ref([]);

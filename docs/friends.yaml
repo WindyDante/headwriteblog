@@ -1,13 +1,14 @@
 - class_name: 友情链接
   class_desc: 不要小瞧我们啊，这就是友情的力量！
   link_list:
+    - name: Akilarの糖果屋
+      url: https://akilar.top/
+      avatar: https://npm.elemecdn.com/akilar-friends@latest/avatar/akilar.top.jpg
+      descr: 欢迎光临糖果屋
     - name: 葱苓sama
       url: https://blog.ciraos.top
       avatar: https://blog.ciraos.top/avatar1.avif
-      # https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/avatar1.avif
       descr: "Don't worry, Be happy."
-      # sitehot: https://blog.ciraos.top/custom/siteshot.avif
-      # https://cdn.jsdelivr.net/gh/ciraos/ciraos-static@main/img/site-shot.avif
     - name: "Redish101 Blog"
       url: "https://blog.redish101.top"
       descr: "学生 人 活的"

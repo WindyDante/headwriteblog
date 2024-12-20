@@ -1,6 +1,6 @@
 <template>
   <div class="rss-generator">
-    <button @click="generateRSS">生成 RSS</button>
+    <!-- <button @click="generateRSS">生成 RSS</button> -->
   </div>
 </template>
 
@@ -63,9 +63,9 @@ const generateRSS = () => {
 </script>
 
 <style scoped>
-.rss-generator {
+/* .rss-generator {
   margin-bottom: 20px;
-}
+} */
 
 button {
   display: inline-block;

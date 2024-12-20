@@ -86,6 +86,11 @@ export default {
   font-size: 28px;
   text-align: center;
 }
+.apply-friends a {
+  text-decoration: none;
+  outline: none;
+  color: #007bff;
+}
 .friend-links-container {
   max-width: 90%;
   margin: auto;
