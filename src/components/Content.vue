@@ -12,9 +12,7 @@
         <a style="cursor: pointer">{{ anchor.title }}</a>
       </div>
     </nav>
-    <!-- TODO 手机端文章过窄 
-    TODO 字体采用system-ui or sans-serif
-     -->
+    <!--TODO 字体采用system-ui or sans-serif-->
     <!-- 主内容 -->
     <div class="content-container">
       <header class="content-header">
@@ -202,9 +200,9 @@ export default {
 
 .content-container {
   flex: 1;
-  padding: 20px;
   max-width: 85%;
   box-sizing: border-box;
+  padding: 10px;
 }
 
 .article-title {
@@ -246,6 +244,9 @@ export default {
 
 /* 移动端和桌面端自适应 */
 @media (max-width: 1024px) {
+  .content-container {
+    max-width: 100%;
+  }
   .content-wrapper {
     flex-direction: column;
   }
@@ -265,10 +266,6 @@ export default {
 }
 
 @media (max-width: 600px) {
-  .content-container {
-    padding: 10px;
-  }
-
   .article-title {
     font-size: 1.2rem;
   }

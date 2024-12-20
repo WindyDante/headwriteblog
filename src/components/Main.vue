@@ -1,33 +1,49 @@
 <template>
-  <div class="blog-container">
-    <GlobalLoading />
+  <div class="blog-complete-container">
     <div>
-      <!-- 写一个rss生成器的组件,并添加对应rss生成的功能 -->
-      <RSSGenerator :articles="markdownFiles" />
+      <!-- 博客左侧内容 -->
     </div>
-    <div>
-      <header class="blog-header">
-        <h1>江湖夜雨十年灯</h1>
-        <p>一壶浊酒尽余欢，今宵别梦寒。</p>
-      </header>
-      <!-- 使用transition-group来包裹li列表，添加动画 -->
-      <!-- TODO 日期排序 -->
-      <transition-group
-        name="fade"
-        tag="ul"
-        class="blog-list"
-        v-if="isContentLoaded"
-      >
-        <li
-          v-for="(file, index) in markdownFiles"
-          :key="file.name"
-          @click="goToArticle(file)"
-          :style="{ animationDelay: `${index * 0.1}s` }"
+    <!--博客主体-->
+    <div class="blog-container">
+      <GlobalLoading />
+      <div>
+        <!-- 写一个rss生成器的组件,并添加对应rss生成的功能 -->
+        <RSSGenerator :articles="markdownFiles" />
+      </div>
+      <div>
+        <header class="blog-header">
+          <h1>江湖夜雨十年灯</h1>
+          <p>一壶浊酒尽余欢，今宵别梦寒。</p>
+        </header>
+        <!-- 使用transition-group来包裹li列表，添加动画 -->
+        <transition-group
+          name="fade"
+          tag="ul"
+          class="blog-list"
+          v-if="isContentLoaded"
         >
-          <h2>{{ file.title }}</h2>
-          <p>{{ file.daysAgo }} 天前</p>
-        </li>
-      </transition-group>
+          <li
+            v-for="(file, index) in markdownFiles"
+            :key="file.name"
+            @click="goToArticle(file)"
+            :style="{ animationDelay: `${index * 0.1}s` }"
+          >
+            <h2>{{ file.title }}</h2>
+            <p>{{ file.daysAgo }} 天前</p>
+          </li>
+        </transition-group>
+      </div>
+    </div>
+    <!-- 博客右侧内容 -->
+    <div class="blog-right-person">
+      <div style="max-width: 25%">
+        <img
+          style="width: 100%; height: 100%"
+          src="https://github.com/WindyDante.png"
+          alt=""
+        />
+      </div>
+      <div class="personMe">myName:WindyDante.EastWind</div>
     </div>
   </div>
 </template>
@@ -63,8 +79,9 @@ const ensureDataLoaded = async () => {
       name: file.name,
       date: file.created,
       title: file.title,
-      daysAgo: file.daysAgo,
+      daysAgo: file.daysAgo + 1,
     }));
+    markdownFiles.value.sort((a, b) => a.daysAgo - b.daysAgo);
     sessionStorage.setItem(
       "markdownFiles",
       JSON.stringify(markdownFiles.value)
@@ -111,9 +128,15 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.blog-container {
-  background-size: cover;
-  padding: 20px;
+.blog-right-person {
+  max-width: 100%;
+  height: 100%;
+  border: 1px solid #e6e6e6;
+}
+.blog-complete-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px;
 }
 
 .blog-header {

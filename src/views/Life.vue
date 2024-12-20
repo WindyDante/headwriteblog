@@ -4,6 +4,13 @@
     <p>
       无论生活如何挑战我们，我们都需要勇敢面对。只有这样才能克服困难，实现自己的目标和价值。
     </p>
+    <div>
+      <img
+        class="JustImgStyle"
+        src="@/assets/img/JustDoIt.jpg"
+        alt="勇敢去做"
+      />
+    </div>
   </div>
   <div class="twikoo-container">
     <Twikoo />
@@ -31,6 +38,10 @@ export default {
 </script>
 
 <style scoped>
+.JustImgStyle {
+  max-width: 50%;
+  height: auto;
+}
 .container {
   display: flex;
   flex-direction: column;
