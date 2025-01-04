@@ -1,1 +1,1 @@
-test github api upload article 666 updated
+"Relay is adding or updating articles for you via GitHub."
