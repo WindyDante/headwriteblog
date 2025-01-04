@@ -1,1 +1,0 @@
-"Relay is adding or updating articles for you via GitHub."
