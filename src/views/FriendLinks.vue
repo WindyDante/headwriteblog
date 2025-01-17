@@ -124,6 +124,7 @@ h2 {
   flex: 1 1 calc(24% - 15px); /* 每行四个 */
   margin: 10px; /* 添加外边距，增加间隔 */
   transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 10px;
 }
 
 .link-item:hover {
@@ -132,6 +133,7 @@ h2 {
 }
 
 .link {
+  height: calc(100% - 30px);
   display: flex;
   align-items: center;
   text-decoration: none;
