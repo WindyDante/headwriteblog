@@ -3,49 +3,15 @@
     <div class="title">
       <div class="titleLeft">WinDy</div>
       <div class="titleCenter">
-        <div @click="toHome">文章</div>
-        <div @click="toLife">生活</div>
-        <div @click="toMessageBoard">留言板</div>
-        <div @click="toFriendLinks">友链</div>
+        <a href="#/"><div>文章</div></a>
+        <a href="#/life">生活</a>
+        <a href="#/messageBoard">留言板</a>
+        <a href="#/friends">友链</a>
       </div>
-      <div class="titleRight" v-if="isMobile">闲话</div>
+      <!-- <div class="titleRight" v-if="isMobile">闲话</div> -->
     </div>
   </div>
 </template>
-
-<script>
-import { useRouter } from "vue-router";
-import { ref } from "vue";
-
-export default {
-  setup() {
-    const router = useRouter();
-
-    const toHome = () => {
-      router.push({ name: "main" });
-    };
-
-    const toLife = () => {
-      router.push({ name: "life" });
-    };
-
-    const toMessageBoard = () => {
-      router.push({ name: "messageBoard" });
-    };
-
-    const toFriendLinks = () => {
-      router.push({ name: "friends" });
-    };
-
-    return {
-      toHome,
-      toLife,
-      toMessageBoard,
-      toFriendLinks,
-    };
-  },
-};
-</script>
 
 <style scoped>
 #header {
@@ -73,12 +39,12 @@ export default {
   justify-content: space-around;
 }
 
-.titleCenter div {
+.titleCenter a {
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
 }
 
-.titleCenter div:hover {
+.titleCenter a:hover {
   color: #b0a4e3; /* 悬停时改变颜色 */
   transform: scale(1.1); /* 悬停时放大 */
 }
@@ -103,5 +69,28 @@ export default {
     height: 60px; /* 保持固定高度以适应一行显示 */
     flex-direction: row; /* 保持横向排列 */
   }
+}
+
+/* 去除a标签的默认下划线 */
+a {
+text-decoration: none;
+}
+
+/* 去除a标签的默认颜色 */
+a {
+color: inherit;
+}
+
+/* 去除a标签被点击时的外部轮廓线 */
+a:focus {
+outline: none;
+}
+
+/* 去除a标签的不同状态下的下划线 */
+a:link,
+a:visited,
+a:hover,
+a:active {
+text-decoration: none;
 }
 </style>
