@@ -664,21 +664,15 @@ Cxx的求解方式
 
 凹凸区间解法
 
-![image-20241112222103108](https://s2.loli.net/2024/11/12/ejvSLE8i7nDY3Cm.png)
+<img src="https://s2.loli.net/2024/11/12/ejvSLE8i7nDY3Cm.png" alt="image-20241112222103108" style="zoom:50%;" />
 
 凹凸区间例题
 
-![image-20241112222213567](https://s2.loli.net/2024/11/12/g73SeyOpNLFUsu9.png)
+<img src="https://s2.loli.net/2024/11/12/g73SeyOpNLFUsu9.png" alt="image-20241112222213567" style="zoom:50%;" />
 
 拐点是使凹凸性发生改变的点的坐标，坐标是有(x,y)的
 
 把拐点带入原式求出y，返回坐标即可
-
-
-
-
-
-
 
 # 裂项
 
