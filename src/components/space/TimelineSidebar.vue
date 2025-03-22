@@ -14,7 +14,7 @@
     </div>
 
     <div class="toggle-button" @click="toggleCollapse">
-      <div class="toggle-icon">{{ isCollapsed ? '>' : '<' }}</div>
+      <div class="toggle-icon">{{ isCollapsed ? '<' : '>' }}</div>
     </div>
   </aside>
 </template>
@@ -147,7 +147,7 @@ export default {
 /* 收起/展开按钮 */
 .toggle-button {
   position: absolute;
-  right: -20px;
+  right: -25px !important;
   top: 50%;
   transform: translateY(-50%);
   width: 20px;
@@ -162,7 +162,6 @@ export default {
   border-left: none;
   transition: all 0.3s ease;
   z-index: 11;
-  margin-right: 5px; /* 添加右侧间距 */
 }
 
 .toggle-button:hover {
@@ -185,7 +184,6 @@ export default {
 }
 
 .dna-timeline.collapsed .toggle-button {
-  right: 40px;
-  z-index: 999;
+  right: 40px !important;
 }
 </style>

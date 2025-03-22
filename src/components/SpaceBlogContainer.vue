@@ -96,9 +96,8 @@ export default {
       timeline: [
         { year: '2024', items: ['Web3革命', '量子通信突破', '生成式AI崛起'], expanded: false },
         { year: '2023', items: ['Web3革命', '量子通信突破', '生成式AI崛起'], expanded: false },
-        { year: '2022', items: ['元宇宙元年', '可持续技术', '生物计算研究'], expanded: false },
-        { year: '2021', items: ['区块链应用', '太空旅行商业化', '脑机接口进展'], expanded: false },
-        { year: '2020', items: ['远程工作变革', '生物技术突破', '气候科技创新'], expanded: false }
+        { year: '2022', items: ['Web3革命', '量子通信突破', '生成式AI崛起'], expanded: false },
+        { year: '2021', items: ['Web3革命', '量子通信突破', '生成式AI崛起'], expanded: false }
       ],
       
       // 主题矩阵数据

@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="voice-comment">
-      <button @click="startVoiceComment">语音评论</button>
+      <button @click="startVoiceComment">点击</button>
     </div>
   </section>
 </template>
@@ -140,6 +140,10 @@ export default {
   background: rgba(50, 50, 100, 0.8);
 }
 
+.like-count {
+  font-size: 0.8rem;
+  color: rgba(200, 200, 255, 0.9);
+}
 .like-btn.liked {
   background: rgba(192, 86, 192, 0.4);
   border-color: rgba(192, 86, 192, 0.7);
