@@ -1,0 +1,36 @@
+{
+  "name": "vite-plugin-prismjs",
+  "version": "0.0.11",
+  "license": "MIT",
+  "author": "Kang Chen",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-farmer-i/vite-plugin-prismjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/code-farmer-i/vite-plugin-prismjs/issues"
+  },
+  "homepage": "https://github.com/code-farmer-i/vite-plugin-prismjs#readme",
+  "dependencies": {
+    "@babel/core": "^7.15.5",
+    "babel-plugin-prismjs": "^2.1.0"
+  },
+  "devDependencies": {
+    "@rollup/pluginutils": "^4.1.1",
+    "@types/babel__core": "^7.1.15",
+    "@types/estree": "^0.0.50",
+    "@types/node": "^16.4.10",
+    "vite": "^2.4.4"
+  }
+}

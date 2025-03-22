@@ -1,0 +1,66 @@
+name: CI Workflow
+# 当推送到 master 分支或创建 pull request 到 master 分支时触发 CI  workflow
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+# 设置权限，允许读取内容、写入页面和 ID 令牌
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+# 定义一个名为 build 的 job，在 ubuntu-latest 环境下运行
+jobs:
+  build:
+    runs-on: ubuntu-latest
+# 执行步骤
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # 确保拉取完整的提交历史
+
+      # 设置 Node.js 环境
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # 修改为 Node.js 20
+
+      # 清理旧的依赖和锁定文件
+      - name: Clean up node_modules and package-lock.json
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
+
+      # 安装依赖
+      - name: Install dependencies
+        run: npm install  # 重新安装依赖
+
+      # 构建项目
+      - name: Build project
+        run: npm run build
+
+      # 列出构建输出
+      - name: List build output
+        run: ls -R docs  # 检查 docs 目录是否存在并列出内容
+
+      # 验证 docs 目录是否存在
+      - name: Verify docs directory exists
+        run: |
+          if [ ! -d "docs" ]; then
+            echo "docs directory not found."
+            exit 1
+          fi
+
+      # 部署到 GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages  # 部署到 gh-pages 分支
+          folder: docs      # 确保你要部署的文件夹
+          clean: true       # 清理旧的部署文件
+          token: ${{ secrets.ACCESS_TOKEN  }}  # 使用 Access Token 进行身份验证
