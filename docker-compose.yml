@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    image: eastwind996/blog:0.0.1
+    build: .
+    ports:
+      - "2345:80"
+    environment:
+      VERSION: 0.0.1
+
+    networks:
+      - app-network
+
+volumes: {}
+
+networks:
+  app-network:
+    driver: bridge

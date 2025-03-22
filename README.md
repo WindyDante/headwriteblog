@@ -1,4 +1,3 @@
----
 ### 友链申请规则
 
 感谢你对我们网站的支持！为了保持友链的质量和一致性，欢迎你通过提交 Pull Request（PR）的方式向我们申请友链。请遵循以下规则：
@@ -13,7 +12,7 @@
 - name: EastWind
   descr: 东风不与周郎便
   avatar: https://github.com/WindyDante.png
-  url: https://996.windydante.top/
+  url: https://1wind.cn/
 ```
 
 #### 2. 申请步骤
@@ -37,5 +36,36 @@
 - 如果你的站点链接或其他信息有变动，请及时提交 PR 进行更新。
 - 长期不活跃或失效的站点将会被移除友链列表。
 
----
+#### 5. Docker部署博客
+
+##### 方式一：Docker Run运行
+```bash
+# 拉取最新镜像
+docker pull eastwind996/blog:0.0.1
+
+# 运行容器（端口映射可根据需要调整）
+docker run -d -p 8080:80 --name blog eastwind996/blog:0.0.1
+
+# 查看运行日志
+docker logs -f blog
+```
+
+##### 方式二：Docker Compose部署
+```bash
+# 使用compose文件启动（默认使用构建好的镜像）
+docker-compose up -d
+
+# 更新镜像版本时（修改docker-compose.yml中的image版本号后）：
+docker-compose down
+docker-compose pull
+docker-compose up -d
+```
+
+##### 镜像版本管理
+- 最新稳定版：`eastwind996/blog:0.0.1`
+- 查看所有镜像版本：
+```bash
+docker images eastwind996/blog
+```
+- 更新时替换命令中的版本号即可
 
