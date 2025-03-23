@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   web:
-    image: eastwind996/blog:0.0.1
+    image: eastwind996/blog:0.0.2
     build: .
     ports:
       - "2345:80"
     environment:
-      VERSION: 0.0.1
+      VERSION: 0.0.2
 
     networks:
       - app-network

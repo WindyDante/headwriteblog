@@ -7,13 +7,18 @@
 - **内容健康**：网站内容需健康、积极，不能涉及违法、违规内容。
 - **网站活跃**：申请者的网站需保持一定的活跃度（最近三个月内有更新）。
 - **外链互换**：申请友链前，请先将我们的网站加入你的友链列表。
-下述是本人的网站,Welcome to visit my website!
- ```yaml
+下述是本人的网站示例（点击展开）：
+<details>
+<summary>友链示例</summary>
+
+```yaml
 - name: EastWind
   descr: 东风不与周郎便
   avatar: https://github.com/WindyDante.png
   url: https://1wind.cn/
 ```
+</details>
+
 
 #### 2. 申请步骤
 1. **Fork 项目**：请先 fork 本项目。
@@ -41,10 +46,10 @@
 ##### 方式一：Docker Run运行
 ```bash
 # 拉取最新镜像
-docker pull eastwind996/blog:0.0.1
+docker pull eastwind996/blog:0.0.2
 
 # 运行容器（端口映射可根据需要调整）
-docker run -d -p 8080:80 --name blog eastwind996/blog:0.0.1
+docker run -d -p 8080:80 --name blog eastwind996/blog:0.0.2
 
 # 查看运行日志
 docker logs -f blog
@@ -62,10 +67,20 @@ docker-compose up -d
 ```
 
 ##### 镜像版本管理
-- 最新稳定版：`eastwind996/blog:0.0.1`
-- 查看所有镜像版本：
+- 最新稳定版：`eastwind996/blog:0.0.2`
+- 查看所有可用版本：
 ```bash
-docker images eastwind996/blog
+docker search eastwind996/blog --filter "is-official=true"
 ```
-- 更新时替换命令中的版本号即可
+- 更新已部署版本：
+```bash
+# 停止并删除旧容器
+docker stop blog && docker rm blog
+
+# 拉取指定版本（示例为0.0.3）
+docker pull eastwind996/blog:0.0.3
+
+# 使用新镜像启动容器
+docker run -d -p 8080:80 --name blog eastwind996/blog:0.0.3
+```
 

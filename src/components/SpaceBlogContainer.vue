@@ -37,16 +37,16 @@
 
 <script>
 // 导入所有子组件
-import SpaceBackground from './space/SpaceBackground.vue';
-import SpaceNavigation from './space/SpaceNavigation.vue';
-import ContentGalaxy from './space/ContentGalaxy.vue';
-import TimelineSidebar from './space/TimelineSidebar.vue';
-import TopicHoneycomb from './space/TopicHoneycomb.vue';
-import AuthorStation from './space/AuthorStation.vue';
-import CommentOcean from './space/CommentOcean.vue';
-import RecommendationStarmap from './space/RecommendationStarmap.vue';
-import SpaceshipDashboard from './space/SpaceshipDashboard.vue';
-import AIAssistant from './space/AIAssistant.vue';
+import SpaceBackground from './spaceIndex/SpaceBackground.vue';
+import SpaceNavigation from './spaceIndex/SpaceNavigation.vue';
+import ContentGalaxy from './spaceIndex/ContentGalaxy.vue';
+import TimelineSidebar from './spaceIndex/TimelineSidebar.vue';
+import TopicHoneycomb from './spaceIndex/TopicHoneycomb.vue';
+import AuthorStation from './spaceIndex/AuthorStation.vue';
+import CommentOcean from './spaceIndex/CommentOcean.vue';
+import RecommendationStarmap from './spaceIndex/RecommendationStarmap.vue';
+import SpaceshipDashboard from './spaceIndex/SpaceshipDashboard.vue';
+import AIAssistant from './spaceIndex/AIAssistant.vue';
 
 export default {
   name: 'SpaceBlogContainer',

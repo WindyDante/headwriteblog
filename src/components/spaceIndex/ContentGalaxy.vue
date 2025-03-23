@@ -14,7 +14,7 @@
           <div class="card-back">
             <p class="article-summary">{{ article.summary }}</p>
             <div class="article-actions">
-              <button class="action-btn">阅读</button>
+              <button class="action-btn" @click="$router.push({ name: 'blog-content', params: { id: 1 } })">阅读</button>
               <button class="action-btn">收藏</button>
               <button class="action-btn">分享</button>
             </div>

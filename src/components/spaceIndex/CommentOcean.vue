@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="voice-comment">
-      <button @click="startVoiceComment">点击</button>
+      <button @click="startVoiceComment">去 评 论 区 看 看 吧 ! </button>
     </div>
   </section>
 </template>
@@ -167,6 +167,7 @@ export default {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-style: italic;
 }
 
 .voice-comment button:hover {
