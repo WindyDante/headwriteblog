@@ -46,10 +46,10 @@
 ##### 方式一：Docker Run运行
 ```bash
 # 拉取最新镜像
-docker pull eastwind996/blog:0.0.2
+docker pull eastwind996/blog:0.0.3
 
 # 运行容器（端口映射可根据需要调整）
-docker run -d -p 8080:80 --name blog eastwind996/blog:0.0.2
+docker run -d -p 2345:80 --name blog eastwind996/blog:0.0.3
 
 # 查看运行日志
 docker logs -f blog
@@ -67,7 +67,7 @@ docker-compose up -d
 ```
 
 ##### 镜像版本管理
-- 最新稳定版：`eastwind996/blog:0.0.2`
+- 最新稳定版：`eastwind996/blog:0.0.3`
 - 查看所有可用版本：
 ```bash
 docker search eastwind996/blog --filter "is-official=true"
@@ -81,6 +81,6 @@ docker stop blog && docker rm blog
 docker pull eastwind996/blog:0.0.3
 
 # 使用新镜像启动容器
-docker run -d -p 8080:80 --name blog eastwind996/blog:0.0.3
+docker run -d -p 2345:80 --name blog eastwind996/blog:0.0.3
 ```
 

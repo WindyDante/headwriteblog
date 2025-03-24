@@ -45,8 +45,7 @@ export default {
     
     // 语音评论
     startVoiceComment() {
-      alert('请开始您的语音评论');
-      // 这里可以接入实际的语音识别API
+      this.$router.push('/comments');
     }
   }
 };
