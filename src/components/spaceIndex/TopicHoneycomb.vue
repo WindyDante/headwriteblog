@@ -5,7 +5,8 @@
          :style="{ 
            backgroundColor: topic.color, 
            transform: `scale(${0.8 + (topic.popularity * 0.4)})` 
-         }">
+         }"
+         @click="navigateToCategory(topic.name)">
       <h3>{{ topic.name }}</h3>
       <span class="topic-count">{{ topic.count }}</span>
     </div>
@@ -19,6 +20,14 @@ export default {
     topics: {
       type: Array,
       default: () => []
+    }
+  },
+  methods: {
+    navigateToCategory(categoryName) {
+      this.$router.push({
+        name: 'blog-category',
+        params: { name: categoryName }
+      });
     }
   }
 };

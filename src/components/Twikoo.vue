@@ -1,5 +1,11 @@
 <template>
   <div class="space-station-container">
+    <!-- Home Portal Button -->
+    <button class="home-portal" @click="$router.push('/')">
+      <div class="portal-icon"></div>
+      <span class="portal-text"></span>
+    </button>
+
     <!-- Particle Background -->
     <div id="particles-js" class="particles-container"></div>
     
@@ -153,6 +159,56 @@ onUnmounted(() => {
   font-family: 'Orbitron', sans-serif;
   color: #fff;
   box-shadow: 0 0 30px rgba(0, 254, 254, 0.3);
+}
+
+/* Home Portal Button */
+.home-portal {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  background: linear-gradient(45deg, #0A1A2F, #1E3A5F);
+  border: 1px solid #00FEFE;
+  border-radius: 25px;
+  color: #00FEFE;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.home-portal:hover {
+  background: linear-gradient(45deg, #1E3A5F, #0A1A2F);
+  box-shadow: 0 0 15px rgba(0, 254, 254, 0.5);
+  transform: translateY(-2px);
+}
+
+.portal-icon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00FEFE;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.portal-icon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #00FEFE 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  animation: portalPulse 2s ease-in-out infinite;
+}
+
+@keyframes portalPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.8); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
 }
 
 /* Particle Background */

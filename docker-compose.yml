@@ -3,12 +3,12 @@ version: '3.8'
 services:
   web:
     build: .
-    image: eastwind996/blog:0.0.3
+    image: eastwind996/blog:0.0.4
     ports:
       - "2345:80"
     restart: always
     environment:
-      VERSION: 0.0.3
+      VERSION: 0.0.4
 
     networks:
       - app-network
